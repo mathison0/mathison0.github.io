@@ -1,0 +1,64 @@
+/* ── 디자인 토큰 ─────────────────────────────────────────────
+   라이트 테마 기준. 다크 테마를 추가할 때는 이 파일의 값만
+   [data-theme='dark'] 블록으로 재정의하면 된다. */
+:root {
+  /* 색: 무채색 위에 파랑 하나만 액센트로 사용 */
+  --c-bg: #ffffff;
+  --c-surface: #fafafa;
+  --c-surface-strong: #f4f4f5;
+  --c-border: #e6e6e9;
+  --c-border-strong: #d4d4d8;
+
+  --c-text: #17181c;
+  --c-text-secondary: #55575f;
+  --c-text-muted: #8a8c94;
+
+  --c-accent: #2b4de0;
+  --c-accent-hover: #1f3bbd;
+  --c-accent-soft: #eef1fe;
+
+  --c-focus: #2b4de0;
+
+  /* 타이포그래피 */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Pretendard',
+    'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono',
+    monospace;
+
+  --fs-display: clamp(2rem, 1.4rem + 2.6vw, 3.25rem);
+  --fs-h1: clamp(1.75rem, 1.35rem + 1.7vw, 2.5rem);
+  --fs-h2: clamp(1.3rem, 1.15rem + 0.7vw, 1.625rem);
+  --fs-h3: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+  --fs-body: 1rem;
+  --fs-sm: 0.9375rem;
+  --fs-xs: 0.8125rem;
+
+  --lh-tight: 1.2;
+  --lh-snug: 1.4;
+  --lh-body: 1.7;
+
+  /* 간격 (4px 스케일) */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --sp-9: 6rem;
+
+  /* 레이아웃 */
+  --w-page: 1080px;
+  --w-prose: 720px;
+  --pad-x: clamp(1.25rem, 4vw, 2.5rem);
+
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 14px;
+
+  --shadow-sm: 0 1px 2px rgba(20, 22, 28, 0.05);
+  --shadow: 0 6px 20px -8px rgba(20, 22, 28, 0.12);
+
+  --header-h: 60px;
+}
