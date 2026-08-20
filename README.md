@@ -20,8 +20,9 @@ npm run typecheck  # 타입 검사만 실행
 `main` 브랜치에 push하면 [.github/workflows/deploy.yml](.github/workflows/deploy.yml)이
 자동으로 빌드해서 GitHub Pages에 배포합니다.
 
-워크플로의 `configure-pages` 단계가 Pages 소스를 자동으로 **GitHub Actions**로
-설정하므로 별도의 저장소 설정은 필요 없습니다.
+**최초 1회 설정**: 저장소 **Settings → Pages → Build and deployment → Source**를
+**GitHub Actions**로 변경해야 합니다. (기본값인 "Deploy from a branch"로 두면
+빌드 결과 대신 원본 소스가 그대로 서빙되어 사이트가 깨집니다.)
 
 ## 내용 수정하기
 

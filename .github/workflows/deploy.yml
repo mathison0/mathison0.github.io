@@ -1,6 +1,8 @@
 # main 브랜치에 push하면 빌드 후 GitHub Pages로 배포한다.
-# configure-pages(enablement: true)가 Pages 소스를 "GitHub Actions"로
-# 자동 설정하므로 별도의 저장소 설정이 필요 없다.
+#
+# ⚠️ Pages 소스가 "Deploy from a branch"(legacy)로 되어 있으면 원본 소스가
+# 그대로 서빙되어 사이트가 깨진다. 저장소 Settings → Pages → Source를
+# "GitHub Actions"로 한 번 변경해야 한다.
 name: Deploy to GitHub Pages
 
 on:
