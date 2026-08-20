@@ -1,8 +1,6 @@
 # main 브랜치에 push하면 빌드 후 GitHub Pages로 배포한다.
-#
-# 최초 1회 설정 필요:
-#   저장소 Settings → Pages → Build and deployment → Source를
-#   "GitHub Actions"로 변경해야 한다.
+# configure-pages(enablement: true)가 Pages 소스를 "GitHub Actions"로
+# 자동 설정하므로 별도의 저장소 설정이 필요 없다.
 name: Deploy to GitHub Pages
 
 on:
@@ -26,6 +24,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Setup Node
         uses: actions/setup-node@v4
