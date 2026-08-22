@@ -5,35 +5,34 @@ import type { SkillGroup, TimelineItem } from '../types'
  * 이름·연락처·이력을 본인 정보로 교체하세요.
  */
 export const profile = {
-  name: 'Mathison',
-  nameKo: '홍길동',
+  name: 'Seyoung Park',
+  nameKo: '박세영',
   role: 'Game Client Developer',
   headline: '플레이가 손에 붙는 감각을, 재현 가능한 구조로 만듭니다.',
   intro:
     'Unity와 C++로 게임 클라이언트를 만듭니다. 전투 로직과 캐릭터 컨트롤처럼 “느낌”이 중요한 영역을 ' +
     '수치와 상태 기계로 분해해 구현하고, 프로파일러 결과로 검증하는 방식으로 작업합니다.',
   location: 'Seoul, KR',
-  email: 'you@example.com',
+  email: 'seyoungpark@hanyang.ac.kr',
   githubUrl: 'https://github.com/mathison0',
   resumeUrl: '', // 이력서 PDF를 public/ 에 두고 '/resume.pdf' 처럼 지정
   /** 홈 상단에 노출되는 요약 지표. */
   facts: [
-    { label: '주 사용 엔진', value: 'Unity 6 / Unreal 5' },
-    { label: '주 사용 언어', value: 'C# / C++ / HLSL' },
-    { label: '관심 분야', value: '게임플레이 · 렌더링 · 최적화' },
-    { label: '상태', value: '2026 신입 채용 지원 중' },
+    { label: '주 사용 엔진', value: 'Unreal 5' },
+    { label: '주 사용 언어', value: 'C++' },
+    { label: '관심 분야', value: '게임플레이' },
+    { label: '상태', value: '한양대학교 컴퓨터소프트웨어학부 4학년 휴학 중' },
   ],
 } as const
 
 export const skillGroups: SkillGroup[] = [
   {
     title: '언어',
-    items: ['C# (주력)', 'C++17 / 20', 'HLSL', 'Python (툴 스크립팅)'],
+    items: ['C++17 / 20 (주력)'],
   },
   {
     title: '엔진 · 프레임워크',
     items: [
-      'Unity (URP, Addressables, Input System)',
       'Unreal Engine 5 (Blueprint / C++ 기초)',
       'DirectX 11 자체 렌더러',
     ],
@@ -95,9 +94,9 @@ export const timeline: TimelineItem[] = [
     ],
   },
   {
-    period: '2022.03 — 2026.02',
-    title: '컴퓨터공학 학사',
-    org: 'OO대학교',
+    period: '2023.03 — 2028.02',
+    title: '컴퓨터소프트웨어학부 학사',
+    org: '한양대학교',
     details: [
       '컴퓨터그래픽스, 자료구조, 운영체제, 컴퓨터네트워크 이수.',
       '졸업 프로젝트로 자체 DirectX 11 렌더러를 제작했습니다.',
