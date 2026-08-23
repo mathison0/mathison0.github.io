@@ -194,7 +194,7 @@ export const projects: Project[] = [
       '기획부터 출시(exe 배포)까지 게임 개발의 전체 사이클을 처음으로 완주한 프로젝트입니다.',
     ],
     links: [
-      { label: 'GitHub 저장소', href: 'https://github.com/mathison0/eggpack' },
+      { label: 'GitHub 저장소', href: 'https://github.com/mathison0/FLYFRY' },
       {
         label: '프로젝트 소개 (Notion)',
         href: 'https://countingbeats.notion.site/madcamp-project3-flyfry',
