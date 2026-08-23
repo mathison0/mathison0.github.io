@@ -10,14 +10,13 @@ export default function HomePage() {
   return (
     <>
       <Seo
-        title={`${profile.name} — ${profile.role}`}
+        title={`${profile.name}`}
         description={profile.intro}
       />
 
       {/* 커버 레터형 히어로: 이름·요약·연락 수단이 첫 화면에 다 보이도록 */}
       <section className="hero" aria-label="프로필 요약">
         <div className="container">
-          <p className="eyebrow">{profile.role}</p>
           <h1 className="hero__name">
             {profile.nameKo} <span className="hero__name-en">{profile.name}</span>
           </h1>

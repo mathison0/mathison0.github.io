@@ -6,7 +6,7 @@ export default function AboutPage() {
     <>
       <Seo
         title={`About — ${profile.name}`}
-        description={`${profile.role} ${profile.name}의 소개, 기술 스택, 이력, 연락처.`}
+        description={`${profile.name}의 소개, 기술 스택, 이력, 연락처.`}
       />
 
       <section className="section">

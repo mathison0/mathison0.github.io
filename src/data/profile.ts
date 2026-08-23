@@ -3,7 +3,6 @@ import type { SkillGroup, TimelineItem } from '../types'
 export const profile = {
   name: 'Seyoung Park',
   nameKo: '박세영',
-  role: 'Game Client Developer',
   headline: '엔진을 직접 만들어 봤기에, 엔진 내부까지 파고들어 문제를 해결합니다.',
   intro:
     'C++와 Unreal Engine 5로 게임 클라이언트를 만듭니다. 크래프톤 정글 게임테크랩에서 14주간 ' +
