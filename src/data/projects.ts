@@ -216,7 +216,7 @@ export const projects: Project[] = [
     platform: 'PC (Windows)',
     engine: 'Godot Engine · GDScript',
     tags: ['Godot', 'Network', 'Gameplay'],
-    featured: false,
+    featured: true,
     video: { kind: 'placeholder', caption: '플레이 영상 준비 중' },
     responsibilities: [
       '제트팩 물리와 좌/우 분사 조작, 연료 시스템 구현',
