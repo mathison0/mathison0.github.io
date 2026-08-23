@@ -29,7 +29,7 @@ export const profile = {
     },
     {
       text: '카이스트 몰입캠프 수료 — 4주간 4개 프로젝트 완성 (Godot · Phaser 멀티플레이 게임 등)',
-      href: '/projects/slime-rpg',
+      href: '/projects/rpg-slime',
       linkLabel: '자세히',
     },
     {

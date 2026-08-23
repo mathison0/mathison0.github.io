@@ -145,64 +145,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: 'slime-rpg',
-    title: 'SLIME RPG',
-    tagline: '웹 실시간 멀티플레이 팀전 PVP RPG — 몰입캠프 4주차',
-    summary:
-      '슬라임에서 시작해 전사·궁수·어쌔신·마법사·서포터로 전직하며 싸우는 팀전 PVP 게임입니다. ' +
-      'Phaser 3 클라이언트와 Socket.io 서버로 일주일 만에 개발했으며, 시야 제한·미니맵·핑·랭킹 등 ' +
-      '실제 출시 게임 수준의 완성도를 목표로 디테일을 채웠습니다.',
-    period: '2025.07 (1주)',
-    role: '클라이언트 · 서버 개발',
-    team: '2명',
-    platform: 'Web (브라우저)',
-    engine: 'Phaser 3 · Node.js · Socket.io',
-    tags: ['Web', 'Network', 'Gameplay', 'JavaScript'],
-    featured: true,
-    video: { kind: 'placeholder', caption: '플레이 영상 준비 중' },
-    responsibilities: [
-      '직업 6종(슬라임·전사·어쌔신·궁수·마법사·서포터)의 스킬과 상성 구조 구현',
-      'Socket.io 기반 실시간 동기화 — 서버 권위 몬스터 AI, 자동 팀 밸런싱',
-      '시야 제한(전장의 안개)과 지나간 지역이 밝혀지는 미니맵/전체맵 시스템',
-      '팀원 핑, 레벨 랭킹, 전직 오브제 드롭 등 메타 시스템',
-    ],
-    features: [
-      {
-        title: '가위바위보 상성의 직업 설계',
-        tech: ['JavaScript', 'Phaser 3'],
-        body:
-          '전사 < 원거리(마법사·궁수) < 어쌔신 < 전사의 상성 고리를 만들고, 은신·기습(어쌔신), ' +
-          '타수 조건 스킬(궁수), 장판·와드(서포터)처럼 직업마다 다른 운영 리듬을 갖게 했습니다.',
-      },
-      {
-        title: '서버 권위 구조',
-        tech: ['Node.js', 'Socket.io'],
-        body:
-          '몬스터 AI·전투 판정·드롭을 모두 서버에서 처리하고 클라이언트는 표시만 담당합니다. ' +
-          '맵 중심으로 갈수록 강한 몹이 배치되어 리스크-리워드 동선이 생기도록 했습니다.',
-      },
-      {
-        title: '시야와 정보 시스템',
-        tech: ['Phaser 3'],
-        body:
-          '탐험한 지역만 맵에서 밝혀지는 시야 시스템과 미니맵/전체맵 토글, 휠 클릭 팀원 핑을 구현해 ' +
-          '팀전에서 정보 공유가 전략이 되도록 했습니다.',
-      },
-    ],
-    caseStudies: [],
-    takeaways: [
-      '“쉬워 보이는 기능”도 멀티플레이가 붙는 순간 동기화 문제가 된다는 것을 몸으로 배웠습니다.',
-      '일주일 안에 기획—구현—밸런싱을 도는 속도전에서 우선순위 결정이 가장 중요했습니다.',
-    ],
-    links: [
-      { label: 'GitHub 저장소', href: 'https://github.com/mathison0/RPG_Slime' },
-      {
-        label: '프로젝트 소개 (Notion)',
-        href: 'https://countingbeats.notion.site/madcamp-project4-slime-rpg',
-      },
-    ],
-  },
-  {
     slug: 'flyfry',
     title: 'FLYFRY',
     tagline: '2인 협동 제트팩 게임 — WebRTC P2P 멀티플레이 · 몰입캠프 3주차',
@@ -256,6 +198,64 @@ export const projects: Project[] = [
       {
         label: '프로젝트 소개 (Notion)',
         href: 'https://countingbeats.notion.site/madcamp-project3-flyfry',
+      },
+    ],
+  },
+  {
+    slug: 'rpg-slime',
+    title: 'RPG SLIME',
+    tagline: '웹 실시간 멀티플레이 팀전 PVP RPG — 몰입캠프 4주차',
+    summary:
+      '슬라임에서 시작해 전사·궁수·어쌔신·마법사·서포터로 전직하며 싸우는 팀전 PVP 게임입니다. ' +
+      'Phaser 3 클라이언트와 Socket.io 서버로 일주일 만에 개발했으며, 시야 제한·미니맵·핑·랭킹 등 ' +
+      '실제 출시 게임 수준의 완성도를 목표로 디테일을 채웠습니다.',
+    period: '2025.07 (1주)',
+    role: '클라이언트 · 서버 개발',
+    team: '2명',
+    platform: 'Web (브라우저)',
+    engine: 'Phaser 3 · Node.js · Socket.io',
+    tags: ['Web', 'Network', 'Gameplay', 'JavaScript'],
+    featured: true,
+    video: { kind: 'placeholder', caption: '플레이 영상 준비 중' },
+    responsibilities: [
+      '직업 6종(슬라임·전사·어쌔신·궁수·마법사·서포터)의 스킬과 상성 구조 구현',
+      'Socket.io 기반 실시간 동기화 — 서버 권위 몬스터 AI, 자동 팀 밸런싱',
+      '시야 제한(전장의 안개)과 지나간 지역이 밝혀지는 미니맵/전체맵 시스템',
+      '팀원 핑, 레벨 랭킹, 전직 오브제 드롭 등 메타 시스템',
+    ],
+    features: [
+      {
+        title: '가위바위보 상성의 직업 설계',
+        tech: ['JavaScript', 'Phaser 3'],
+        body:
+          '전사 < 원거리(마법사·궁수) < 어쌔신 < 전사의 상성 고리를 만들고, 은신·기습(어쌔신), ' +
+          '타수 조건 스킬(궁수), 장판·와드(서포터)처럼 직업마다 다른 운영 리듬을 갖게 했습니다.',
+      },
+      {
+        title: '서버 권위 구조',
+        tech: ['Node.js', 'Socket.io'],
+        body:
+          '몬스터 AI·전투 판정·드롭을 모두 서버에서 처리하고 클라이언트는 표시만 담당합니다. ' +
+          '맵 중심으로 갈수록 강한 몹이 배치되어 리스크-리워드 동선이 생기도록 했습니다.',
+      },
+      {
+        title: '시야와 정보 시스템',
+        tech: ['Phaser 3'],
+        body:
+          '탐험한 지역만 맵에서 밝혀지는 시야 시스템과 미니맵/전체맵 토글, 휠 클릭 팀원 핑을 구현해 ' +
+          '팀전에서 정보 공유가 전략이 되도록 했습니다.',
+      },
+    ],
+    caseStudies: [],
+    takeaways: [
+      '“쉬워 보이는 기능”도 멀티플레이가 붙는 순간 동기화 문제가 된다는 것을 몸으로 배웠습니다.',
+      '일주일 안에 기획—구현—밸런싱을 도는 속도전에서 우선순위 결정이 가장 중요했습니다.',
+    ],
+    links: [
+      { label: 'GitHub 저장소', href: 'https://github.com/mathison0/RPG_Slime' },
+      {
+        label: '프로젝트 소개 (Notion)',
+        href: 'https://countingbeats.notion.site/madcamp-project4-slime-rpg',
       },
     ],
   },
