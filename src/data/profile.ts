@@ -4,13 +4,14 @@ export const profile = {
   name: 'Seyoung Park',
   nameKo: '박세영',
   role: 'Game Client Developer',
-  headline: '플레이가 손에 붙는 감각을, 재현 가능한 구조로 만듭니다.',
+  headline: '엔진을 직접 만들어 봤기에, 엔진 내부까지 파고들어 문제를 해결합니다.',
   intro:
     'C++와 Unreal Engine 5로 게임 클라이언트를 만듭니다. 크래프톤 정글 게임테크랩에서 14주간 ' +
     '자체 게임 엔진을 만들었고, 그 경험을 바탕으로 UE5 플러그인 DynamicRope를 개발해 Fab에 출시했습니다.',
   location: 'Seoul, KR',
   email: 'seyoungpark@hanyang.ac.kr',
   githubUrl: 'https://github.com/mathison0',
+  bojUrl: 'https://solved.ac/profile/seyoungpark',
   resumeUrl: '', // 이력서 PDF를 public/ 에 두고 '/resume.pdf' 처럼 지정
   /**
    * 홈 첫 화면의 커버 레터(요약) — 4~5줄로 자신을 요약.
@@ -31,14 +32,15 @@ export const profile = {
       links: [{ label: '자세히', href: '/projects/gametechlab-engine' }],
     },
     {
-      text: '카이스트 몰입캠프 수료 — 4주간 4개 프로젝트 완성 (Godot · Phaser 멀티플레이 게임 등)',
+      text: '카이스트 몰입캠프 수료 — 4.5주간 4개 프로젝트 완성 (Godot · Phaser 멀티플레이 게임 등)',
       links: [
         { label: 'FLYFRY', href: '/projects/flyfry' },
         { label: 'RPG SLIME', href: '/projects/rpg-slime' },
       ],
     },
     {
-      text: 'C++ 주력 · Perforce / Git / Slack 팀 협업',
+      text: '백준 Platinum 5 — 알고리즘 동아리 ALOHA 운영진·멘토, HCPC Beginner 부문 대상',
+      links: [{ label: 'solved.ac', href: 'https://solved.ac/profile/seyoungpark' }],
     },
     {
       text: '한양대학교 컴퓨터소프트웨어학부 4학년 (휴학 중)',
@@ -90,8 +92,18 @@ export const timeline: TimelineItem[] = [
     title: '카이스트 몰입캠프',
     org: '카이스트',
     details: [
-      '4주간 매주 팀을 바꿔 4개 프로젝트를 기획부터 출시까지 완성했습니다.',
+      '4.5주간 매주 팀을 바꿔 4개 프로젝트를 기획부터 출시까지 완성했습니다.',
       'Android 앱 · AI 영상 제작 웹 · Godot 협동 게임 · 웹 멀티플레이 RPG를 개발했습니다.',
+    ],
+  },
+  {
+    period: '2023.03 — 2025.02',
+    title: '알고리즘 동아리 ALOHA · 운영진',
+    org: '한양대학교',
+    details: [
+      '운영진이자 멘토로 활동하며 알고리즘 스터디를 이끌고 교내 알고리즘 대회를 운영했습니다.',
+      'HCPC(한양대 프로그래밍 경시대회) Beginner 부문 대상을 수상했습니다.',
+      '백준 solved.ac Platinum 5 달성.',
     ],
   },
   {
@@ -99,29 +111,9 @@ export const timeline: TimelineItem[] = [
     title: '컴퓨터소프트웨어학부 학사',
     org: '한양대학교',
     details: [
-      '컴퓨터그래픽스, 자료구조, 운영체제, 컴퓨터네트워크 이수.',
+      '그래픽스·수학 — 컴퓨터그래픽스, 선형대수, 수치해석',
+      '시스템 — 운영체제, 시스템프로그래밍, 컴퓨터구조론',
+      '기반 — 자료구조론, 알고리즘및문제해결기법, 컴퓨터네트워크, 객체지향시스템설계',
     ],
-  },
-]
-
-/** About 페이지의 “작업 방식” 항목. */
-export const workingPrinciples: { title: string; body: string }[] = [
-  {
-    title: '수치로 말하는 최적화',
-    body:
-      '“빨라진 것 같다”로 끝내지 않습니다. 프로파일러로 기준값을 먼저 재고, ' +
-      '변경 후 같은 조건에서 다시 측정해 프레임 타임과 드로우콜 변화로 결과를 남깁니다.',
-  },
-  {
-    title: '기획 변경을 견디는 데이터 구조',
-    body:
-      '밸런스 수치와 연출 파라미터는 코드에서 분리해 데이터로 뺍니다. 기획자가 직접 수정할 수 있으면 ' +
-      '빌드 대기 없이 반복 실험이 가능하고, 클라이언트 코드도 단순해집니다.',
-  },
-  {
-    title: '재현 가능한 버그 리포트',
-    body:
-      '버그를 만나면 먼저 최소 재현 절차를 만듭니다. 재현이 되면 원인 추적과 회귀 테스트가 쉬워지고, ' +
-      '팀에 공유할 때도 설명이 짧아집니다.',
   },
 ]

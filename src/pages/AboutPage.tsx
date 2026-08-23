@@ -1,5 +1,5 @@
 import Seo from '../components/Seo'
-import { profile, skillGroups, timeline, workingPrinciples } from '../data/profile'
+import { profile, skillGroups, timeline } from '../data/profile'
 
 export default function AboutPage() {
   return (
@@ -18,9 +18,9 @@ export default function AboutPage() {
           <div className="prose" style={{ marginTop: 'var(--sp-5)' }}>
             <p>{profile.intro}</p>
             <p>
-              게임을 하다가 “이건 어떻게 구현했지?”가 궁금해서 개발을 시작했고, 지금은 그 질문에
-              직접 답을 만드는 일을 하고 있습니다. 잘 만든 조작감과 안정적인 프레임이 게임 경험의
-              바탕이라고 믿고, 그 두 가지를 책임질 수 있는 클라이언트 개발자가 되는 것이 목표입니다.
+              엔진을 블랙박스로 두지 않으려 합니다. 매주 팀을 바꿔가며 다른 사람의 엔진 코드를
+              이어받아 확장했고, DynamicRope를 만들 때는 언리얼 엔진 소스를 따라 들어가 문제를
+              풀었습니다. 덕분에 낯선 코드베이스에 빠르게 적응하는 것이 강점이 되었습니다.
             </p>
           </div>
         </div>
@@ -43,22 +43,6 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="principles-heading">
-        <div className="container container--prose">
-          <h2 id="principles-heading" style={{ marginBottom: 'var(--sp-5)' }}>
-            작업 방식
-          </h2>
-          <ul className="feature-list">
-            {workingPrinciples.map((principle) => (
-              <li key={principle.title}>
-                <h3>{principle.title}</h3>
-                <p className="feature__body">{principle.body}</p>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
@@ -108,6 +92,14 @@ export default function AboutPage() {
               <dd>
                 <a href={profile.githubUrl} target="_blank" rel="noreferrer">
                   {profile.githubUrl.replace('https://', '')}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt>solved.ac</dt>
+              <dd>
+                <a href={profile.bojUrl} target="_blank" rel="noreferrer">
+                  {profile.bojUrl.replace('https://', '')}
                 </a>
               </dd>
             </div>
