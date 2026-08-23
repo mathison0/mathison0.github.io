@@ -21,7 +21,7 @@ export const projects: Project[] = [
       '솔버·충돌 감지·튜브 메싱이 모두 GPU(RDG 컴퓨트)에서 동작하고 CPU 폴백 경로를 갖추고 있습니다.',
     period: '2026.06 — 2026.08',
     role: '팀 개발 (TeamKeno)',
-    team: 'TeamKeno',
+    team: '3명 (TeamKeno)',
     platform: 'Windows (UE 5.5 — 5.8)',
     engine: 'Unreal Engine 5 · C++',
     tags: ['Unreal', 'C++', 'Physics', 'GPU', 'Plugin'],
@@ -32,10 +32,12 @@ export const projects: Project[] = [
       caption: 'DynamicRope 공식 데모 영상',
     },
     responsibilities: [
-      'GPU XPBD 솔버 — 시뮬레이션·충돌 감지·튜브 메싱을 RDG 컴퓨트 셰이더로 구현, CPU 폴백 유지',
-      '본 단위 래핑 — 애니메이션 중인 스켈레탈 메시의 본을 로프가 감고 따라가는 시스템',
-      '레그돌 연동 — 감긴 레그돌을 엔진 물리 컨스트레인트로 붙잡아 Chaos와 함께 해석',
-      '장력 기반 당기기 · 릴 감기 · 거리 기반 해제 등 게임플레이 상호작용',
+      'SDF 충돌 백엔드 — 본별 SDF 베이커와 오써링 에디터 툴(3D 프리뷰 뷰포트, 양자화 압축으로 에셋 ~4배 절감) 전체 구현',
+      '월드 충돌 — 엔진 Global Distance Field를 솔버 컴퓨트에 통합, 박스·컨벡스·ISM 정적 바디 콜라이더 제공자 구현',
+      '비-스켈레탈 랩과 테더 — 랩 타겟 추상화, 프롭 감기, 질량 배분 기반 당기기, Pierce(꽂기) 모드와 릴 감기',
+      '렌더링 — 로프 전용 버텍스 팩토리로 정점별 모션 벡터 공급(TSR/TAA 고스팅 해결), 컴퓨트 PSO 프리캐싱으로 첫 사용 히칭 제거',
+      '솔버 안정화 — 프레임 과부하 시 서브스텝 신축 흡수, 저프레임 관통(터널링)·감쇠 버그 수정',
+      '조준 HUD, Gameplay Debugger 진단 뷰, 디테일 패널·프리셋 — 판매용 플러그인의 튜닝 표면 설계',
     ],
     features: [
       {
@@ -102,10 +104,12 @@ export const projects: Project[] = [
     featured: true,
     video: { kind: 'placeholder', caption: '주차별 발표 영상은 저장소 docs/ 폴더 참고' },
     responsibilities: [
-      '매주 다른 팀의 엔진 코드베이스를 이어받아 분석하고 그 위에 기능을 확장',
-      'DirectX 11 렌더링 파이프라인, 씬/액터 구조, 에디터 기능 구현',
-      '14주차 게임잼 — 직접 만든 엔진으로 게임 제작',
-      '주차별 저장소를 git subtree로 병합해 커밋 히스토리를 보존한 통합 저장소 구성',
+      '라이팅 파이프라인 — Ambient/Directional/Point/Spot 라이트를 UberLit 셰이더로 통합, 셰이더 핫리로드',
+      '그림자 — 포인트 라이트 큐브맵 섀도우(PCF), VSM 메모리 최적화, PSM/CSM 모드 전환',
+      '스켈레탈 메시와 CPU/GPU 스키닝 — 본 웨이트 히트맵, 스키닝 통계, FBX 축·단위 정규화',
+      '캐스케이드 스타일 파티클 시스템 에디터 — 이미터/모듈 편집, 커브 에디터, undo/redo, 에셋 저장',
+      'PhysicsAsset 기반 랙돌 — 바디/컨스트레인트 구성, 애니메이션↔랙돌 블렌드 전환',
+      '14주차 게임잼에서 UI/HUD·컷씬·사운드 담당, 주차별 저장소를 subtree로 병합한 통합 저장소 구축',
     ],
     features: [
       {
@@ -161,9 +165,10 @@ export const projects: Project[] = [
     featured: true,
     video: { kind: 'placeholder', caption: '플레이 영상 준비 중' },
     responsibilities: [
-      '제트팩 물리와 좌/우 분사 조작, 연료 시스템 구현',
-      '상태이상·아이템·10종 이상의 장애물 오브젝트 기믹 구현',
-      '세이브포인트(계란판)와 낙하 중심의 사망 규칙 등 게임 루프 구현',
+      '계란 캐릭터 물리 — 좌/우 분사 힘·각속도·가속도 튜닝, 속도 기반 깨짐 판정과 충돌 판정',
+      '게임 루프 — 세이브포인트(계란판)·리스폰, 목숨 시스템, 제트팩 분리, 엔딩 시퀀스 구현',
+      '연료 아이템·스왑 포탈 등 오브젝트 기믹과 게임 월드 씬 구성',
+      'HUD와 기록 시스템 — 플레이 시간 표시, 클리어 기록 저장',
     ],
     features: [
       {
@@ -210,7 +215,7 @@ export const projects: Project[] = [
       'Phaser 3 클라이언트와 Socket.io 서버로 일주일 만에 개발했으며, 시야 제한·미니맵·핑·랭킹 등 ' +
       '실제 출시 게임 수준의 완성도를 목표로 디테일을 채웠습니다.',
     period: '2025.07 (1주)',
-    role: '클라이언트 · 서버 개발',
+    role: '게임플레이 · 스킬 시스템 (클라이언트/서버)',
     team: '2명',
     platform: 'Web (브라우저)',
     engine: 'Phaser 3 · Node.js · Socket.io',
@@ -218,10 +223,10 @@ export const projects: Project[] = [
     featured: true,
     video: { kind: 'placeholder', caption: '플레이 영상 준비 중' },
     responsibilities: [
-      '직업 6종(슬라임·전사·어쌔신·궁수·마법사·서포터)의 스킬과 상성 구조 구현',
-      'Socket.io 기반 실시간 동기화 — 서버 권위 몬스터 AI, 자동 팀 밸런싱',
-      '시야 제한(전장의 안개)과 지나간 지역이 밝혀지는 미니맵/전체맵 시스템',
-      '팀원 핑, 레벨 랭킹, 전직 오브제 드롭 등 메타 시스템',
+      '직업 6종(슬라임·전사·어쌔신·궁수·마법사·서포터)의 스킬 전체 구현 — 은신·기습, 타수 조건 스킬, 장판·와드 등',
+      '스킬·전투의 클라이언트-서버 동기화 — 데미지 판정과 이펙트 재생을 Socket.io 이벤트로 일치시키는 작업',
+      '투사체 기반 원거리 공격과 근접 판정, 직업별 기본 공격 체계',
+      '스킬 쿨타임 UI와 팀원 핑 표시 개선',
     ],
     features: [
       {
