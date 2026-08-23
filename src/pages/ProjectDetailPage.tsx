@@ -91,6 +91,7 @@ export default function ProjectDetailPage() {
             </ul>
           </section>
 
+          {project.caseStudies.length > 0 ? (
           <section aria-labelledby="case-heading">
             <h2 id="case-heading" className="block__title">
               문제 해결 사례
@@ -114,6 +115,7 @@ export default function ProjectDetailPage() {
               ))}
             </div>
           </section>
+          ) : null}
 
           {project.extraMedia && project.extraMedia.length > 0 ? (
             <section aria-labelledby="media-heading">

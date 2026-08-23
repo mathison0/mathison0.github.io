@@ -1,21 +1,44 @@
 import type { SkillGroup, TimelineItem } from '../types'
 
-/**
- * ⚠️ 이 파일의 내용은 예시(플레이스홀더)입니다.
- * 이름·연락처·이력을 본인 정보로 교체하세요.
- */
 export const profile = {
   name: 'Seyoung Park',
   nameKo: '박세영',
   role: 'Game Client Developer',
   headline: '플레이가 손에 붙는 감각을, 재현 가능한 구조로 만듭니다.',
   intro:
-    'Unity와 C++로 게임 클라이언트를 만듭니다. 전투 로직과 캐릭터 컨트롤처럼 “느낌”이 중요한 영역을 ' +
-    '수치와 상태 기계로 분해해 구현하고, 프로파일러 결과로 검증하는 방식으로 작업합니다.',
+    'C++와 Unreal Engine 5로 게임 클라이언트를 만듭니다. 크래프톤 정글 게임테크랩에서 14주간 ' +
+    '자체 게임 엔진을 만들었고, 그 경험을 바탕으로 UE5 플러그인 DynamicRope를 개발해 Fab에 출시했습니다.',
   location: 'Seoul, KR',
   email: 'seyoungpark@hanyang.ac.kr',
   githubUrl: 'https://github.com/mathison0',
   resumeUrl: '', // 이력서 PDF를 public/ 에 두고 '/resume.pdf' 처럼 지정
+  /**
+   * 홈 첫 화면의 커버 레터(요약) — 4~5줄로 자신을 요약.
+   * href를 주면 해당 줄 끝에 링크가 붙는다 (내부 경로 '/projects/...' 또는 외부 URL).
+   */
+  highlights: [
+    {
+      text: 'Unreal Engine 5 플러그인 DynamicRope 출시 — GPU XPBD 로프 시뮬레이션 · 본 래핑',
+      href: 'https://www.fab.com/listings/17f62a8f-387b-48b0-9198-af7273dc3733',
+      linkLabel: 'Fab',
+    },
+    {
+      text: '크래프톤 정글 게임테크랩 3기 — C++ / DirectX 11 자체 게임 엔진 14주 제작',
+      href: '/projects/gametechlab-engine',
+      linkLabel: '자세히',
+    },
+    {
+      text: '카이스트 몰입캠프 수료 — 4주간 4개 프로젝트 완성 (Godot · Phaser 멀티플레이 게임 등)',
+      href: '/projects/slime-rpg',
+      linkLabel: '자세히',
+    },
+    {
+      text: 'C++ 주력 · Perforce / Git / Slack 팀 협업',
+    },
+    {
+      text: '한양대학교 컴퓨터소프트웨어학부 4학년 (휴학 중)',
+    },
+  ],
   /** 홈 상단에 노출되는 요약 지표. */
   facts: [
     { label: '주 사용 엔진', value: 'Unreal 5' },
@@ -33,8 +56,8 @@ export const skillGroups: SkillGroup[] = [
   {
     title: '엔진 · 프레임워크',
     items: [
-      'Unreal Engine 5 (Blueprint / C++ 기초)',
-      'DirectX 11 자체 렌더러',
+      'Unreal Engine 5 (Blueprint / C++)',
+      'DirectX 11',
     ],
   },
   {
@@ -43,7 +66,7 @@ export const skillGroups: SkillGroup[] = [
       '캐릭터 컨트롤 · 애니메이션 스테이트 머신',
       '전투 판정 (히트박스, 프레임 데이터)',
       'AI 행동 트리 · 유틸리티 기반 판단',
-      '데이터 주도 설계 (ScriptableObject, JSON 테이블)',
+      '데이터 주도 설계 (JSON 테이블, 프리셋 에셋)',
     ],
   },
   {
@@ -66,31 +89,30 @@ export const skillGroups: SkillGroup[] = [
   {
     title: '툴 · 협업',
     items: [
-      'Git / Git LFS, Perforce 기초',
-      'Unity Editor 확장 툴 제작',
-      'GitHub Actions CI, 자동 빌드',
-      'Jira · Notion 기반 협업',
+      'Perforce 기반 팀 협업',
+      'Git / Git LFS, GitHub Actions CI',
+      'Slack · Notion 기반 협업',
     ],
   },
 ]
 
 export const timeline: TimelineItem[] = [
   {
-    period: '2024.03 — 2026.02',
-    title: '게임 개발 동아리 · 클라이언트 파트장',
-    org: 'OO대학교',
+    period: '2026.03 — 2026.08',
+    title: '크래프톤 정글 게임테크랩 3기',
+    org: '크래프톤 정글',
     details: [
-      '4개 팀 프로젝트에서 클라이언트 구조 설계와 코드 리뷰를 담당했습니다.',
-      '신입 부원 대상 Unity 게임플레이 구현 스터디를 2기 운영했습니다.',
+      '14주간 매주 팀을 바꿔가며 C++ / DirectX 11 자체 게임 엔진을 제작했습니다.',
+      '15주차부터 Epic Project로 UE5 플러그인 DynamicRope를 개발해 Fab에 출시했습니다.',
     ],
   },
   {
     period: '2025.07 — 2025.08',
-    title: '게임 클라이언트 인턴',
-    org: 'OO 스튜디오',
+    title: '카이스트 몰입캠프',
+    org: '카이스트',
     details: [
-      '라이브 프로젝트의 UI 흐름 리팩터링과 버그 수정 티켓을 처리했습니다.',
-      '모바일 저사양 기기 프레임 드랍 이슈를 프로파일링해 원인 리포트를 작성했습니다.',
+      '4주간 매주 팀을 바꿔 4개 프로젝트를 기획부터 출시까지 완성했습니다.',
+      'Android 앱 · AI 영상 제작 웹 · Godot 협동 게임 · 웹 멀티플레이 RPG를 개발했습니다.',
     ],
   },
   {
@@ -99,7 +121,6 @@ export const timeline: TimelineItem[] = [
     org: '한양대학교',
     details: [
       '컴퓨터그래픽스, 자료구조, 운영체제, 컴퓨터네트워크 이수.',
-      '졸업 프로젝트로 자체 DirectX 11 렌더러를 제작했습니다.',
     ],
   },
 ]
@@ -109,7 +130,7 @@ export const workingPrinciples: { title: string; body: string }[] = [
   {
     title: '수치로 말하는 최적화',
     body:
-      '“빨라진 것 같다”로 끝내지 않습니다. Unity Profiler·RenderDoc으로 기준값을 먼저 재고, ' +
+      '“빨라진 것 같다”로 끝내지 않습니다. 프로파일러로 기준값을 먼저 재고, ' +
       '변경 후 같은 조건에서 다시 측정해 프레임 타임과 드로우콜 변화로 결과를 남깁니다.',
   },
   {
