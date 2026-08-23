@@ -27,22 +27,29 @@ export default function HomePage() {
             {profile.highlights.map((item) => (
               <li key={item.text} className="highlights__item">
                 {item.text}
-                {'href' in item && item.href ? (
-                  item.href.startsWith('/') ? (
-                    <Link className="highlights__link" to={item.href}>
-                      {item.linkLabel ?? '링크'} →
-                    </Link>
-                  ) : (
-                    <a
-                      className="highlights__link"
-                      href={item.href}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {item.linkLabel ?? '링크'} ↗
-                    </a>
-                  )
-                ) : null}
+                {'links' in item
+                  ? item.links.map((link) =>
+                      link.href.startsWith('/') ? (
+                        <Link
+                          key={link.href}
+                          className="highlights__link"
+                          to={link.href}
+                        >
+                          {link.label} →
+                        </Link>
+                      ) : (
+                        <a
+                          key={link.href}
+                          className="highlights__link"
+                          href={link.href}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          {link.label} ↗
+                        </a>
+                      ),
+                    )
+                  : null}
               </li>
             ))}
           </ul>

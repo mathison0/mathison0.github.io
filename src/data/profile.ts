@@ -14,23 +14,28 @@ export const profile = {
   resumeUrl: '', // 이력서 PDF를 public/ 에 두고 '/resume.pdf' 처럼 지정
   /**
    * 홈 첫 화면의 커버 레터(요약) — 4~5줄로 자신을 요약.
-   * href를 주면 해당 줄 끝에 링크가 붙는다 (내부 경로 '/projects/...' 또는 외부 URL).
+   * links를 주면 해당 줄 끝에 링크가 붙는다 (내부 경로 '/projects/...' 또는 외부 URL).
    */
   highlights: [
     {
       text: 'Unreal Engine 5 플러그인 DynamicRope 출시 — GPU XPBD 로프 시뮬레이션 · 본 래핑',
-      href: 'https://www.fab.com/listings/17f62a8f-387b-48b0-9198-af7273dc3733',
-      linkLabel: 'Fab',
+      links: [
+        {
+          label: 'Fab',
+          href: 'https://www.fab.com/listings/17f62a8f-387b-48b0-9198-af7273dc3733',
+        },
+      ],
     },
     {
       text: '크래프톤 정글 게임테크랩 3기 — C++ / DirectX 11 자체 게임 엔진 14주 제작',
-      href: '/projects/gametechlab-engine',
-      linkLabel: '자세히',
+      links: [{ label: '자세히', href: '/projects/gametechlab-engine' }],
     },
     {
       text: '카이스트 몰입캠프 수료 — 4주간 4개 프로젝트 완성 (Godot · Phaser 멀티플레이 게임 등)',
-      href: '/projects/rpg-slime',
-      linkLabel: '자세히',
+      links: [
+        { label: 'FLYFRY', href: '/projects/flyfry' },
+        { label: 'RPG SLIME', href: '/projects/rpg-slime' },
+      ],
     },
     {
       text: 'C++ 주력 · Perforce / Git / Slack 팀 협업',
