@@ -428,6 +428,10 @@
   margin: 0;
 }
 
+.card__highlight-item {
+  white-space: nowrap;
+}
+
 .card__highlight-label {
   display: inline-block;
   margin-right: var(--sp-2);

@@ -31,8 +31,8 @@ export interface Project {
   tagline: string
   /** 2~3문장 요약. 상세 페이지 상단에 노출된다. */
   summary: string
-  /** 내 담당 한 줄. 홈 대표 카드에서 tagline 아래 노출된다. */
-  highlight?: string
+  /** 내 담당 항목. 홈 대표 카드에서 tagline 아래 ' · '로 이어 한 줄로 노출된다. */
+  highlight?: string[]
   period: string
   role: string
   team: string

@@ -45,7 +45,15 @@ export default function ProjectCard({ project, layout = 'compact' }: ProjectCard
         {wide && project.highlight ? (
           <p className="card__highlight">
             <span className="card__highlight-label">담당</span>
-            {project.highlight}
+            {/* 항목 사이에서만 줄바꿈되도록 항목 단위로 감싸고, 구분점은 앞 항목 끝에 붙인다 */}
+            {project.highlight.map((item, i, items) => (
+              <span key={item}>
+                <span className="card__highlight-item">
+                  {item}
+                  {i < items.length - 1 ? ' ·' : null}
+                </span>{' '}
+              </span>
+            ))}
           </p>
         ) : null}
         <TagList tags={project.tags} />
