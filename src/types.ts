@@ -101,6 +101,8 @@ export interface RepoProject {
   engine: string
   tags: string[]
   href: string
+  /** 카드 위쪽에 보여줄 이미지·영상 (선택) */
+  media?: MediaSource
 }
 
 export interface SkillGroup {

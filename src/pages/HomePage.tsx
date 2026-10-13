@@ -1,5 +1,6 @@
 import { useEffect, useState, type MouseEvent } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import Media from '../components/Media'
 import ProjectCard from '../components/ProjectCard'
 import Seo from '../components/Seo'
 import TagList from '../components/TagList'
@@ -141,6 +142,9 @@ export default function HomePage() {
                     className="card card--clickable"
                     onClick={(event) => openRepoFromCard(event, project.href)}
                   >
+                    {project.media ? (
+                      <Media source={project.media} title={project.title} variant="card" />
+                    ) : null}
                     <div className="card__body">
                       <div className="card__meta">
                         <span>{project.period}</span>

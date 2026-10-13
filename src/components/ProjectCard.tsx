@@ -1,25 +1,14 @@
 import type { MouseEvent } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import type { MediaSource, Project } from '../types'
+import type { Project } from '../types'
 import Media from './Media'
 import TagList from './TagList'
-
-function videoHref(source: MediaSource | undefined): string | null {
-  switch (source?.kind) {
-    case 'youtube':
-      return `https://www.youtube.com/watch?v=${source.id}`
-    case 'file':
-      return source.src
-    default:
-      return null
-  }
-}
 
 interface ProjectCardProps {
   project: Project
   /**
    * wide: 영상 왼쪽 + 요약까지 보여주는 가로형 (홈 대표 프로젝트).
-   * compact: 영상 영역 없이 하단에 영상 링크만 두는 텍스트 카드 (전체 목록).
+   * compact: 영상·이미지를 위에 두는 세로형 카드 (그 외 프로젝트).
    */
   layout?: 'wide' | 'compact'
   /** 요약 줄에서 이 카드로 이동해 왔을 때 잠깐 강조한다. */
@@ -33,7 +22,6 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   const detailPath = `/projects/${project.slug}`
   const wide = layout === 'wide'
-  const video = wide ? null : videoHref(project.video)
   const navigate = useNavigate()
 
   // 카드 빈 곳을 눌러도 '자세히 보기'처럼 상세 페이지로 간다.
@@ -58,7 +46,7 @@ export default function ProjectCard({
         .join(' ')}
       onClick={handleCardClick}
     >
-      {wide && project.video ? (
+      {project.video ? (
         <Media source={project.video} title={`${project.title} 영상`} variant="card" />
       ) : null}
       <div className="card__body">
@@ -89,11 +77,6 @@ export default function ProjectCard({
           <Link className="btn btn--primary btn--sm" to={detailPath}>
             자세히 보기 →
           </Link>
-          {video ? (
-            <a className="btn btn--ghost btn--sm" href={video} target="_blank" rel="noreferrer">
-              영상 ↗
-            </a>
-          ) : null}
           {project.links
             .filter((link) => link.cardLabel)
             .map((link) => (

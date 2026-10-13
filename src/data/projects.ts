@@ -550,6 +550,7 @@ export const projects: Project[] = [
     engine: 'Phaser 3 · Node.js · Socket.io',
     tags: ['Web', 'Network', 'Gameplay', 'JavaScript'],
     featured: false,
+    video: { kind: 'image', src: '/images/rpg-slime.webp', alt: 'RPG SLIME 대표 이미지' },
     responsibilities: [
       '직업 6종(슬라임·전사·어쌔신·궁수·마법사·서포터)의 스킬 전체 구현: 은신·기습, 타수 조건 스킬, 장판·와드 등',
       '스킬의 서버 측 판정 로직: 팀이 만든 Socket.io 서버 구조 위에서 직업별 스킬 판정과 클라이언트 이펙트를 연결',
@@ -603,6 +604,11 @@ export const repoProjects: RepoProject[] = [
     engine: 'React · NestJS · OpenAI API',
     tags: ['Web', 'AI'],
     href: 'https://github.com/gistjackdaniel/filmWithAi',
+    media: {
+      kind: 'image',
+      src: '/images/filmwithai.webp',
+      alt: 'FilmWithAI 콘티(캡션 카드) 생성 화면',
+    },
   },
 ]
 
