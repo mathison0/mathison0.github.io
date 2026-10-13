@@ -97,7 +97,7 @@ export const projects: Project[] = [
       '엔진의 주요 영역을 다뤘습니다. 주차별 커밋 히스토리를 보존해 하나의 저장소로 통합했습니다.',
     period: '2026.03 — 2026.06 (14주)',
     role: '엔진 개발 (매주 팀 로테이션)',
-    team: '주차별 4~6명 팀 로테이션',
+    team: '주차별 3~4명 팀 로테이션',
     platform: 'PC (Windows)',
     engine: '자체 엔진 · DirectX 11 · C++',
     tags: ['C++', 'DirectX', 'Graphics', 'Engine'],
