@@ -100,7 +100,7 @@ export const timeline: TimelineItem[] = [
     title: '알고리즘 동아리 ALOHA · 운영진',
     org: '한양대학교',
     details: [
-      '운영진이자 멘토로 활동하며 알고리즘 스터디를 이끌고 동아리내/교내 알고리즘 대회(HCPC)를 운영했습니다.',
+      '운영진이자 멘토로 활동하며 알고리즘 스터디를 이끌고 동아리 내/교내 알고리즘 대회(HCPC)를 운영했습니다.',
       'HCPC(한양대 프로그래밍 경시대회) Beginner 부문 대상을 수상했습니다.',
       '백준 solved.ac Platinum 5 달성.',
     ],
