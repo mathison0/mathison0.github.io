@@ -68,9 +68,9 @@ export const skillGroups: SkillGroup[] = [
   {
     title: '툴 · 협업',
     items: [
-      'Perforce 기반 팀 협업',
+      'Perforce',
       'Git / Git LFS · GitHub',
-      'Slack · Notion 기반 협업',
+      'Slack · Notion',
     ],
   },
 ]
