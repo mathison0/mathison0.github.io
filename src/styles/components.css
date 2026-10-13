@@ -443,6 +443,12 @@
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
+/* 요약 줄에서 '프로젝트 ↓'로 이동해 온 카드. 클래스가 빠지면 기본 transition으로 사라진다. */
+.card.card--flash {
+  border-color: var(--c-accent);
+  box-shadow: 0 0 0 4px var(--c-accent-soft);
+}
+
 .card:hover,
 .card:focus-within {
   border-color: var(--c-border-strong);

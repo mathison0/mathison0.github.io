@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import ProjectCard from '../components/ProjectCard'
 import Seo from '../components/Seo'
@@ -13,12 +13,25 @@ import { projects, repoProjects } from '../data/projects'
 export default function HomePage() {
   const featured = projects.filter((project) => project.featured)
   const others = projects.filter((project) => !project.featured)
-  const { hash } = useLocation()
+  const { hash, key } = useLocation()
+  const [flashSlug, setFlashSlug] = useState<string | null>(null)
 
-  // /#skills 같은 주소로 바로 들어오거나 /about에서 리다이렉트된 경우에도 해당 섹션으로 이동
+  // /#skills 같은 주소로 바로 들어오거나 /about에서 리다이렉트된 경우에도 해당 섹션으로 이동.
+  // 요약 줄의 '프로젝트 ↓'(#project-<slug>)로 온 경우에는 그 대표 카드를 잠깐 강조한다.
+  // key를 의존성에 넣어 같은 링크를 다시 눌러도 다시 동작하게 한다.
   useEffect(() => {
-    if (hash) document.getElementById(hash.slice(1))?.scrollIntoView()
-  }, [hash])
+    if (!hash) return
+    const target = document.getElementById(hash.slice(1))
+    if (!hash.startsWith('#project-')) {
+      target?.scrollIntoView()
+      return
+    }
+    // 카드는 메뉴 바로 아래에 붙이지 않고 화면 가운데에 둔다
+    target?.scrollIntoView({ block: 'center' })
+    setFlashSlug(hash.slice('#project-'.length))
+    const timer = window.setTimeout(() => setFlashSlug(null), 2200)
+    return () => window.clearTimeout(timer)
+  }, [hash, key])
 
   return (
     <>
@@ -46,7 +59,15 @@ export default function HomePage() {
                 {'text' in item ? `: ${item.text}` : null}
                 {'links' in item
                   ? item.links.map((link) =>
-                      link.href.startsWith('/') ? (
+                      link.href.startsWith('#') ? (
+                        <Link
+                          key={link.href}
+                          className="highlights__link"
+                          to={{ hash: link.href.slice(1) }}
+                        >
+                          {link.label} ↓
+                        </Link>
+                      ) : link.href.startsWith('/') ? (
                         <Link
                           key={link.href}
                           className="highlights__link"
@@ -83,7 +104,12 @@ export default function HomePage() {
           </h2>
           <div className="featured-list">
             {featured.map((project) => (
-              <ProjectCard key={project.slug} project={project} layout="wide" />
+              <ProjectCard
+                key={project.slug}
+                project={project}
+                layout="wide"
+                flash={flashSlug === project.slug}
+              />
             ))}
           </div>
           {/* 보조 프로젝트는 기본으로 접어 둔다 */}

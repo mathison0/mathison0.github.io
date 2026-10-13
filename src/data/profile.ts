@@ -20,23 +20,25 @@ export const profile = {
   resumeUrl: '', // 이력서 PDF를 public/ 에 두고 '/resume.pdf' 처럼 지정
   /**
    * 홈 첫 화면의 커버 레터(요약): 결과를 앞(lead, 굵게)에, 맥락을 뒤(text)에 둔다.
-   * links를 주면 해당 줄 끝에 링크가 붙는다 (내부 경로 '/projects/...' 또는 외부 URL).
+   * links를 주면 해당 줄 끝에 링크가 붙는다.
+   *  - '#project-<slug>': 같은 페이지의 대표 카드로 스크롤하고 카드를 잠깐 강조 (↓)
+   *  - '/...': 다른 페이지 (→), 그 외: 외부 URL (↗)
    */
   highlights: [
     {
       lead: 'UE5 플러그인 DynamicRope Fab 출시',
       text: 'GPU 로프 시뮬레이션',
-      links: [{ label: '자세히', href: '/projects/dynamic-rope' }],
+      links: [{ label: '프로젝트', href: '#project-dynamic-rope' }],
     },
     {
       lead: 'C++ / DirectX 11 자체 게임 엔진 14주 제작',
       text: '크래프톤 정글 게임테크랩',
-      links: [{ label: '자세히', href: '/projects/gametechlab-engine' }],
+      links: [{ label: '프로젝트', href: '#project-gametechlab-engine' }],
     },
     {
       lead: 'SKKU × HYU CSE 교류전 AI 부문 3위',
       text: '시뮬레이션 기반 봇 · 평가 하네스 · RL 실험',
-      links: [{ label: '자세히', href: '/projects/lucky-punch' }],
+      links: [{ label: '프로젝트', href: '#project-lucky-punch' }],
     },
     {
       lead: '백준 Platinum 5 · 알고리즘 동아리 ALOHA 운영진 · HCPC Beginner 대상',

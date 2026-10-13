@@ -21,15 +21,24 @@ interface ProjectCardProps {
    * compact: 영상 영역 없이 하단에 영상 링크만 두는 텍스트 카드 (전체 목록).
    */
   layout?: 'wide' | 'compact'
+  /** 요약 줄에서 이 카드로 이동해 왔을 때 잠깐 강조한다. */
+  flash?: boolean
 }
 
-export default function ProjectCard({ project, layout = 'compact' }: ProjectCardProps) {
+export default function ProjectCard({
+  project,
+  layout = 'compact',
+  flash = false,
+}: ProjectCardProps) {
   const detailPath = `/projects/${project.slug}`
   const wide = layout === 'wide'
   const video = wide ? null : videoHref(project.video)
 
   return (
-    <article className={wide ? 'card card--wide' : 'card'}>
+    <article
+      id={`project-${project.slug}`}
+      className={['card', wide && 'card--wide', flash && 'card--flash'].filter(Boolean).join(' ')}
+    >
       {wide && project.video ? (
         <Media source={project.video} title={`${project.title} 영상`} variant="card" />
       ) : null}
