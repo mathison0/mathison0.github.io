@@ -65,7 +65,7 @@ export default function ProjectDetailPage() {
               {project.links.map((link) => (
                 <a
                   key={link.href + link.label}
-                  className="btn btn--ghost"
+                  className="btn btn--soft"
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"
@@ -195,7 +195,7 @@ export default function ProjectDetailPage() {
               {project.links.map((link) => (
                 <a
                   key={link.href + link.label}
-                  className="btn btn--ghost"
+                  className="btn btn--soft"
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"

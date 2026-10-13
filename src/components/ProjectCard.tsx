@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom'
+import type { MouseEvent } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import type { MediaSource, Project } from '../types'
 import Media from './Media'
 import TagList from './TagList'
@@ -33,11 +34,29 @@ export default function ProjectCard({
   const detailPath = `/projects/${project.slug}`
   const wide = layout === 'wide'
   const video = wide ? null : videoHref(project.video)
+  const navigate = useNavigate()
+
+  // 카드 빈 곳을 눌러도 '자세히 보기'처럼 상세 페이지로 간다.
+  // 버튼·링크·영상 재생처럼 자체 동작이 있는 곳과, 글자를 드래그해 선택한 경우는 건드리지 않는다.
+  // 키보드 사용자는 제목 링크와 '자세히 보기'로 같은 곳에 갈 수 있다.
+  function handleCardClick(event: MouseEvent<HTMLElement>) {
+    const target = event.target as HTMLElement
+    if (target.closest('a, button, video, iframe')) return
+    if (window.getSelection()?.toString()) return
+    if (event.ctrlKey || event.metaKey) {
+      window.open(detailPath, '_blank', 'noopener')
+      return
+    }
+    navigate(detailPath)
+  }
 
   return (
     <article
       id={`project-${project.slug}`}
-      className={['card', wide && 'card--wide', flash && 'card--flash'].filter(Boolean).join(' ')}
+      className={['card', 'card--clickable', wide && 'card--wide', flash && 'card--flash']
+        .filter(Boolean)
+        .join(' ')}
+      onClick={handleCardClick}
     >
       {wide && project.video ? (
         <Media source={project.video} title={`${project.title} 영상`} variant="card" />
@@ -67,11 +86,11 @@ export default function ProjectCard({
         ) : null}
         <TagList tags={project.tags} />
         <div className="card__footer">
-          <Link className="card__link" to={detailPath}>
+          <Link className="btn btn--primary btn--sm" to={detailPath}>
             자세히 보기 →
           </Link>
           {video ? (
-            <a className="card__link" href={video} target="_blank" rel="noreferrer">
+            <a className="btn btn--ghost btn--sm" href={video} target="_blank" rel="noreferrer">
               영상 ↗
             </a>
           ) : null}
@@ -80,7 +99,7 @@ export default function ProjectCard({
             .map((link) => (
               <a
                 key={link.href}
-                className="card__link"
+                className="btn btn--ghost btn--sm"
                 href={link.href}
                 target="_blank"
                 rel="noreferrer"

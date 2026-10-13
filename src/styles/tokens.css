@@ -2,22 +2,26 @@
    라이트 테마 기준. 다크 테마를 추가할 때는 이 파일의 값만
    [data-theme='dark'] 블록으로 재정의하면 된다. */
 :root {
-  /* 색: 무채색 위에 파랑 하나만 액센트로 사용 */
+  /* 색: 무채색 위에 파랑 하나만 액센트로 사용.
+     페이지 바탕(--c-page)은 연회색, 카드·버튼 등 요소 바탕(--c-bg)은 흰색으로 층을 둔다. */
+  --c-page: #fdfdfe;
   --c-bg: #ffffff;
-  --c-surface: #fafafa;
-  --c-surface-strong: #f4f4f5;
-  --c-border: #e6e6e9;
-  --c-border-strong: #d4d4d8;
+  --c-surface: #f6f7f9;
+  --c-surface-strong: #eceef2;
+  --c-border: #dcdfe5;
+  --c-border-strong: #c3c7cf;
+  --c-divider: #d3dbeb; /* 섹션 사이 굵은 구분선: 남색 기운이 도는 회색 */
 
   --c-text: #17181c;
-  --c-text-secondary: #55575f;
-  --c-text-muted: #8a8c94;
+  --c-text-secondary: #3f4149;
+  --c-text-muted: #6f727b;
 
-  --c-accent: #2b4de0;
-  --c-accent-hover: #1f3bbd;
-  --c-accent-soft: #eef1fe;
+  --c-accent: #1d2475;
+  --c-accent-hover: #151a57;
+  --c-accent-light: #88affc; /* 글자 링크 밑줄용 연한 파랑 */
+  --c-accent-soft: #edf3ff;
 
-  --c-focus: #2b4de0;
+  --c-focus: #1d2475;
 
   /* 타이포그래피 */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Pretendard',
@@ -59,6 +63,8 @@
 
   --shadow-sm: 0 1px 2px rgba(20, 22, 28, 0.05);
   --shadow: 0 6px 20px -8px rgba(20, 22, 28, 0.12);
+  --shadow-card: 0 2px 4px rgba(20, 22, 28, 0.08), 0 10px 28px -8px rgba(20, 22, 28, 0.26);
+  --shadow-card-hover: 0 4px 8px rgba(20, 22, 28, 0.1), 0 22px 44px -12px rgba(20, 22, 28, 0.36);
 
   --header-h: 60px;
 }

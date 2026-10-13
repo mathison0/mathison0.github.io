@@ -1,10 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type MouseEvent } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import ProjectCard from '../components/ProjectCard'
 import Seo from '../components/Seo'
 import TagList from '../components/TagList'
 import { profile, skillGroups, timeline } from '../data/profile'
 import { projects, repoProjects } from '../data/projects'
+
+/** 저장소 카드 빈 곳을 누르면 GitHub를 새 탭으로 연다 (ProjectCard의 카드 클릭과 같은 규칙). */
+function openRepoFromCard(event: MouseEvent<HTMLElement>, href: string) {
+  const target = event.target as HTMLElement
+  if (target.closest('a, button')) return
+  if (window.getSelection()?.toString()) return
+  window.open(href, '_blank', 'noopener,noreferrer')
+}
 
 /**
  * 한 페이지 포트폴리오: 요약 → 프로젝트 → 이력 → 기술 스택 → 연락처.
@@ -29,7 +37,7 @@ export default function HomePage() {
     // 카드는 메뉴 바로 아래에 붙이지 않고 화면 가운데에 둔다
     target?.scrollIntoView({ block: 'center' })
     setFlashSlug(hash.slice('#project-'.length))
-    const timer = window.setTimeout(() => setFlashSlug(null), 2200)
+    const timer = window.setTimeout(() => setFlashSlug(null), 4400)
     return () => window.clearTimeout(timer)
   }, [hash, key])
 
@@ -128,7 +136,11 @@ export default function HomePage() {
               <h3 className="block__title">게임 외 프로젝트</h3>
               <div className="project-grid">
                 {repoProjects.map((project) => (
-                  <article key={project.href} className="card">
+                  <article
+                    key={project.href}
+                    className="card card--clickable"
+                    onClick={(event) => openRepoFromCard(event, project.href)}
+                  >
                     <div className="card__body">
                       <div className="card__meta">
                         <span>{project.period}</span>
@@ -143,7 +155,7 @@ export default function HomePage() {
                       <TagList tags={project.tags} />
                       <div className="card__footer">
                         <a
-                          className="card__link"
+                          className="btn btn--ghost btn--sm"
                           href={project.href}
                           target="_blank"
                           rel="noreferrer"
