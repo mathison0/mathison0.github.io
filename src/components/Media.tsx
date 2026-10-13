@@ -22,9 +22,6 @@ export default function Media({ source, title, variant = 'standalone' }: MediaPr
       <div className={className}>
         <MediaInner source={source} title={title} />
       </div>
-      {'caption' in source && source.caption ? (
-        <figcaption className="media__caption">{source.caption}</figcaption>
-      ) : null}
     </figure>
   )
 }

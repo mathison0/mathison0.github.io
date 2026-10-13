@@ -78,16 +78,16 @@ export default function HomePage() {
             <h2 id="featured-heading">대표 프로젝트</h2>
             <Link to="/projects">전체 보기 →</Link>
           </div>
-          <div className="project-grid">
+          <div className="featured-list">
             {featured.map((project) => (
-              <ProjectCard key={project.slug} project={project} />
+              <ProjectCard key={project.slug} project={project} layout="wide" />
             ))}
           </div>
         </div>
       </section>
 
       <section className="section" aria-labelledby="home-timeline-heading">
-        <div className="container container--prose">
+        <div className="container">
           <div className="section-head">
             <h2 id="home-timeline-heading">이력</h2>
             <Link to="/about">소개 더 보기 →</Link>

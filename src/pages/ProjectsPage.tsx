@@ -27,7 +27,7 @@ export default function ProjectsPage() {
           <p className="eyebrow">Projects</p>
           <h1 style={{ marginTop: 'var(--sp-3)' }}>프로젝트</h1>
           <p className="lead" style={{ marginTop: 'var(--sp-4)', maxWidth: '58ch' }}>
-            각 프로젝트는 플레이 영상과 함께, 담당한 구현과 문제 해결 과정을 정리했습니다.
+            각 프로젝트의 담당 범위와 핵심 구현, 문제 해결 과정을 정리했습니다.
           </p>
 
           <div className="filter-bar" style={{ marginTop: 'var(--sp-6)' }} role="group" aria-label="기술 필터">
@@ -63,7 +63,7 @@ export default function ProjectsPage() {
           {visibleRepos.length > 0 ? (
             <section className="repo-projects" aria-labelledby="repo-projects-heading">
               <h2 id="repo-projects-heading" className="block__title">
-                그 외 프로젝트
+                게임 외 프로젝트
               </h2>
               <div className="project-grid">
                 {visibleRepos.map((project) => (

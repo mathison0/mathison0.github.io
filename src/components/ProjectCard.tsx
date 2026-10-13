@@ -1,14 +1,38 @@
 import { Link } from 'react-router-dom'
-import type { Project } from '../types'
+import type { MediaSource, Project } from '../types'
 import Media from './Media'
 import TagList from './TagList'
 
-export default function ProjectCard({ project }: { project: Project }) {
+function videoHref(source: MediaSource): string | null {
+  switch (source.kind) {
+    case 'youtube':
+      return `https://www.youtube.com/watch?v=${source.id}`
+    case 'file':
+      return source.src
+    case 'placeholder':
+      return null
+  }
+}
+
+interface ProjectCardProps {
+  project: Project
+  /**
+   * wide: 영상 왼쪽 + 요약까지 보여주는 가로형 (홈 대표 프로젝트).
+   * compact: 영상 영역 없이 하단에 영상 링크만 두는 텍스트 카드 (전체 목록).
+   */
+  layout?: 'wide' | 'compact'
+}
+
+export default function ProjectCard({ project, layout = 'compact' }: ProjectCardProps) {
   const detailPath = `/projects/${project.slug}`
+  const wide = layout === 'wide'
+  const video = wide ? null : videoHref(project.video)
 
   return (
-    <article className="card">
-      <Media source={project.video} title={`${project.title} 영상`} variant="card" />
+    <article className={wide ? 'card card--wide' : 'card'}>
+      {wide ? (
+        <Media source={project.video} title={`${project.title} 영상`} variant="card" />
+      ) : null}
       <div className="card__body">
         <div className="card__meta">
           <span>{project.period}</span>
@@ -18,11 +42,22 @@ export default function ProjectCard({ project }: { project: Project }) {
           <Link to={detailPath}>{project.title}</Link>
         </h3>
         <p className="card__summary">{project.tagline}</p>
+        {wide && project.highlight ? (
+          <p className="card__highlight">
+            <span className="card__highlight-label">담당</span>
+            {project.highlight}
+          </p>
+        ) : null}
         <TagList tags={project.tags} />
         <div className="card__footer">
           <Link className="card__link" to={detailPath}>
             자세히 보기 →
           </Link>
+          {video ? (
+            <a className="card__link" href={video} target="_blank" rel="noreferrer">
+              영상 ↗
+            </a>
+          ) : null}
         </div>
       </div>
     </article>

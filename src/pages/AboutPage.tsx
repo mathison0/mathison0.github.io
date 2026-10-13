@@ -47,7 +47,7 @@ export default function AboutPage() {
       </section>
 
       <section className="section" aria-labelledby="timeline-heading">
-        <div className="container container--prose">
+        <div className="container">
           <h2 id="timeline-heading" style={{ marginBottom: 'var(--sp-5)' }}>
             이력
           </h2>
