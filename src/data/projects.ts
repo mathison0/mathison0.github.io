@@ -1,4 +1,4 @@
-import type { Project } from '../types'
+import type { Project, RepoProject } from '../types'
 
 /**
  * 영상 연결 방법
@@ -85,6 +85,109 @@ export const projects: Project[] = [
       },
       { label: '공식 문서', href: 'https://teamkeno.github.io/DynamicRopeDocs/' },
       { label: 'GitHub 저장소', href: 'https://github.com/TeamKeno/DynamicRope' },
+    ],
+  },
+  {
+    slug: 'lucky-punch',
+    title: 'LuckyPunch',
+    tagline: '피카츄 배구 AI 대회 봇 · 오프라인 평가 하네스 · PPO 비교 실험 — 교류전 AI 부문 3위',
+    summary:
+      '2026 성균관대 × 한양대 CSE 교류전 AI 부문(피카츄 배구 봇 대회)에 팀으로 참가해 3위를 했습니다. ' +
+      '엔진 물리를 복제한 시뮬레이션 기반 룰 봇을 16개 버전까지 개선했고, 이를 측정하려고 브라우저 없이 ' +
+      '실제 엔진으로 수백 세트를 돌리는 오프라인 대전 하네스를 만들었습니다. 대회 후에는 이 하네스를 ' +
+      '강화학습 환경으로 감싸 PPO 에이전트를 학습시키고 룰 봇과 같은 프로토콜로 비교하고 있습니다.',
+    period: '2026.08 — 진행 중',
+    role: '룰 봇 · 평가 하네스 · RL 실험',
+    team: '3명 (LuckyPunch) · RL 실험은 개인',
+    platform: 'Web (봇 대회) · Node.js / Python (오프라인 환경)',
+    engine: 'JavaScript · Node.js · Python (Gymnasium · SB3)',
+    tags: ['AI', 'RL', 'Simulation', 'JavaScript', 'Python'],
+    featured: true,
+    video: { kind: 'placeholder', caption: '대회 플레이 영상 준비 중' },
+    responsibilities: [
+      '룰 기반 봇 v01~v16 — 엔진 물리를 복제한 궤적 시뮬레이션, 파워히트 채점, maximin 예측 수비, 2-ply 서브 채점, 접촉형 상태머신',
+      '오프라인 대전 하네스 — 반영 지연·시작 위치 지터·시드·진영을 통제해 실제 엔진으로 수백 세트를 돌리고, 버전 간 비교 프로토콜을 정함',
+      '대회 제출 봇 — 팀원이 만든 PikaPlanner 봇에 대회 당일 공개된 스킬의 발동 로직을 추가',
+      'RL 실험(개인) — 하네스를 Gymnasium/SB3 환경으로 감싸고 PPO를 학습시켜 룰 봇과 같은 조건으로 평가·진단',
+      '버전별 전략 문서 — 설계 의도, 측정값, 기각한 가설과 근거를 버전마다 기록',
+    ],
+    features: [
+      {
+        title: '엔진 물리를 복제한 시뮬레이션 기반 봇',
+        tech: ['JavaScript'],
+        body:
+          '게임의 physics.js를 분석해 공의 벽 반사·네트 판정·파워히트 속도 공식을 봇 내부에서 그대로 재현했습니다. ' +
+          '공격할 때는 파워히트 6종과 몸통 리턴의 궤적을 끝까지 시뮬레이션해 상대가 받기 어려운 수를 고르고, 수비할 때는 ' +
+          '상대가 공을 칠 시점의 가능한 수 7종이 떨어질 지점을 모두 계산해 가장 받기 어려운 수와의 거리가 최소가 되는 ' +
+          '위치(maximin)에 미리 섭니다. 이 탐색을 모두 해도 decide 한 번은 120ms 결정 주기 대비 수 ms 안에 끝납니다(v10 평균 0.5ms). ' +
+          '이후 버전에서는 서브의 2수 앞 평가, 상대에 따라 접촉 방식을 바꾸는 상태머신, 점수차에 따른 리시브 전략 전환을 더했습니다.',
+      },
+      {
+        title: '오프라인 대전 하네스와 측정 프로토콜',
+        tech: ['Node.js'],
+        body:
+          '브라우저에서 한 세트에 1분 걸리던 대전을 실제 엔진 사본으로 1초에 끝내는 하네스를 만들었습니다. 봇의 결정 주기와 ' +
+          '입력 반영 지연, 득점 후 물리가 멈추는 구간, 5회 접촉 규칙까지 브라우저와 같게 재현합니다. 봇끼리의 대전은 ' +
+          '결정론적이라 시작 위치에 지터를 주고, 시드 24개 × 양 진영 × 지터 {0, 8}로 상대당 48세트를 기본 단위로 삼았습니다. ' +
+          '파라미터 스윕, 프레임 단위 랠리 추적, 랠리 통계 도구를 함께 두어 "왜 이겼는가"를 랠리 단위로 분해할 수 있게 했습니다.',
+      },
+      {
+        title: 'PPO 에이전트 vs 룰 봇 비교 실험',
+        tech: ['Python', 'Gymnasium', 'Stable-Baselines3'],
+        body:
+          '하네스를 강화학습 환경으로 감쌌습니다. 1 step을 봇의 결정 주기(3프레임)와 같게 두고 반영 지연과 정지 구간도 그대로 남겨, ' +
+          '에이전트가 룰 봇과 같은 정보·같은 제약 아래서 경쟁하게 했습니다. v16을 에이전트 슬롯에 꽂아 하네스와 비교한 72개 조합에서 ' +
+          '점수와 프레임 수가 모두 일치했고, Node 프로세스 하나가 여러 게임을 배치로 돌려 내장 AI 상대 기준 초당 약 7만 스텝을 냅니다. ' +
+          '2,000만 스텝 학습한 PPO는 학습 상대인 내장 AI를 랠리 100%로 이겨 룰 봇(83%)보다 강했지만, 평가 상대 9종 평균 ' +
+          '세트 승률은 40~43%로 룰 봇 v16(65%)에 못 미쳤습니다. 현재 상대 풀 학습과 지연 무작위화로 2차 실험을 진행하고 있습니다.',
+      },
+    ],
+    caseStudies: [
+      {
+        problem:
+          '오프라인 하네스에서 승률 100%였던 봇이 실제 브라우저 대전에서 5-10으로 졌습니다.',
+        approach:
+          '게임은 득점 후와 첫 랠리 전에 물리를 수십 프레임 멈추는데, 봇의 decide는 그 사이에도 계속 호출되고 있었습니다. ' +
+          '얼어붙은 스냅샷을 보고 "지금 점프"라고 답하면 그 입력이 랠리 첫 프레임에 적용되어, 공이 오기 30프레임 전에 뛰고 ' +
+          '착지해 버려 서브를 통째로 놓쳤습니다. 공 위치가 직전 tick과 완전히 같으면 물리가 멈춘 것으로 보고 좌우 이동만 남기도록 ' +
+          '고쳤고, 같은 정지 구간을 하네스에도 재현해 오프라인 결과가 실제와 어긋나지 않게 했습니다.',
+        result: '수정한 v3는 브라우저 실전에서 3전 3승했고, 이후 모든 버전과 RL 환경이 이 정지 구간을 포함해 측정합니다.',
+      },
+      {
+        problem:
+          'v6가 v5를 73~95%로 이긴다는 초기 측정이 나왔지만, 조건을 바꿔 다시 재면 결과가 크게 흔들렸습니다.',
+        approach:
+          '랠리 로그를 분해해 보니 특정 진영 조합에서는 33랠리 전부 서브를 넣은 쪽이 이겼습니다. 같은 계열 봇끼리의 세트 승부가 ' +
+          '사실상 서브권 추첨이었고, 앞의 수치는 지터와 시드 운이 만든 값이었습니다. 소표본 단일 조건 수치는 ±20%p씩 흔들린다는 ' +
+          '것을 확인하고, 이후로는 상대 풀 종합(지터 2종 × 시드 24개 × 양 진영, 상대당 48세트)이 아니면 비교하지 않도록 프로토콜을 바꿨습니다.',
+        result:
+          '새 프로토콜에서 v6 vs v5는 50%로 동급이었고, 특정 시드에서만 좋아 보였던 파라미터 변경도 회귀로 드러났습니다. ' +
+          '이후 버전은 모두 이 프로토콜로 비교했습니다.',
+      },
+      {
+        problem:
+          'PPO 에이전트가 학습 상대는 완파하면서, 가장 약한 수비형 베이스라인 v01에게는 세트를 하나도 따지 못했습니다.',
+        approach:
+          '체크포인트별로 학습하지 않은 상대에 대한 승률을 다시 재 보니, 내장 AI 상대 성능이 300만 스텝에서 포화한 뒤 v01·v16 상대 ' +
+          '성능은 오르지 않거나 떨어졌습니다. 실점 원인을 분해하면 PPO는 v01이 넘긴 공의 21.7%를 놓쳤고(v16은 3.3%), 놓칠 때 ' +
+          '86%가 점프한 상태였습니다. 내장 AI도 같은 종류의 느린 공을 보내지만 PPO는 그 공을 0.3%만 놓쳤기 때문에 "본 적 없는 공"이라는 ' +
+          '설명은 기각했고, 단일 상대의 위치·타이밍 분포에 맞춰진 과적합과 지연 하나에 묶인 점프 타이밍을 원인 가설로 세웠습니다.',
+        result:
+          '이 가설을 직접 검증하도록 학습 상대 7종 풀과 반영 지연 무작위화, 학습에 쓰지 않은 홀드아웃 상대 2종으로 2차 실험을 설계해 진행 중입니다.',
+      },
+    ],
+    takeaways: [
+      '시뮬레이터에서 이긴 결과가 실제 환경에서도 성립하려면, 환경의 시간 구조(결정 주기, 반영 지연, 정지 구간)까지 같아야 한다는 것을 직접 겪었습니다.',
+      '다단 세팅, 상시 좌우 흔들기, 벽 반사 허점처럼 그럴듯한 가설을 여럿 세웠고, 대부분 측정으로 기각했습니다. 기각한 이유를 남겨 둔 것이 다음 버전의 출발점이 됐습니다.',
+      'AI 코딩 에이전트와 협업할 때 엔진 규칙·함정·측정 프로토콜을 문서로 고정해 두고, 실험 실행은 에이전트에 맡기되 채택과 기각은 측정 수치로 판단했습니다.',
+    ],
+    links: [
+      { label: '봇 · 하네스 저장소', href: 'https://github.com/mathison0/LuckyPunch' },
+      { label: 'RL 실험 저장소', href: 'https://github.com/mathison0/LuckyPunch-RL' },
+      {
+        label: 'RL 실험 보고서',
+        href: 'https://github.com/mathison0/LuckyPunch-RL/blob/main/docs/strategy/rl.md',
+      },
     ],
   },
   {
@@ -233,7 +336,7 @@ export const projects: Project[] = [
     platform: 'PC (Windows)',
     engine: 'Godot Engine · GDScript',
     tags: ['Godot', 'Network', 'Gameplay'],
-    featured: true,
+    featured: false,
     video: { kind: 'youtube', id: 'HOPTFL1Y5E8', caption: 'FLYFRY 플레이 영상' },
     responsibilities: [
       '계란 캐릭터 물리 — 제트팩 분사(공기저항·힘·각속도 튜닝), 속도 기반 깨짐 판정과 충돌 판정',
@@ -291,11 +394,11 @@ export const projects: Project[] = [
     platform: 'Web (브라우저)',
     engine: 'Phaser 3 · Node.js · Socket.io',
     tags: ['Web', 'Network', 'Gameplay', 'JavaScript'],
-    featured: true,
+    featured: false,
     video: { kind: 'placeholder', caption: '플레이 영상 준비 중' },
     responsibilities: [
       '직업 6종(슬라임·전사·어쌔신·궁수·마법사·서포터)의 스킬 전체 구현 — 은신·기습, 타수 조건 스킬, 장판·와드 등',
-      '스킬·전투의 클라이언트-서버 동기화 — 데미지 판정과 이펙트 재생을 Socket.io 이벤트로 일치시키는 작업',
+      '스킬의 서버 측 판정 로직 — 팀이 만든 Socket.io 서버 구조 위에서 직업별 스킬 판정과 클라이언트 이펙트를 연결',
       '투사체 기반 원거리 공격과 근접 판정, 직업별 기본 공격 체계',
       '팀원 핑 표시 기능과 스킬 쿨타임 UI, 직업·몬스터 스프라이트 적용',
     ],
@@ -308,11 +411,11 @@ export const projects: Project[] = [
           '타수 조건 스킬(궁수), 장판·와드(서포터)처럼 직업마다 다른 운영 리듬을 갖게 했습니다.',
       },
       {
-        title: '서버 권위 구조',
+        title: '서버 권위 구조 (팀 설계)',
         tech: ['Node.js', 'Socket.io'],
         body:
-          '몬스터 AI·전투 판정·드롭을 모두 서버에서 처리하고 클라이언트는 표시만 담당합니다. ' +
-          '맵 중심으로 갈수록 강한 몹이 배치되어 리스크-리워드 동선이 생기도록 했습니다.',
+          '몬스터 AI·전투 판정·드롭을 서버에서 처리하고 클라이언트는 표시를 담당하는 팀의 구조 위에, ' +
+          '직업 스킬의 판정을 서버 쪽에 얹었습니다. 맵 중심으로 갈수록 강한 몹이 배치되어 리스크-리워드 동선이 생깁니다.',
       },
       {
         title: '시야와 정보 시스템',
@@ -337,6 +440,26 @@ export const projects: Project[] = [
   },
 ]
 
+/** 상세 페이지 없이 프로젝트 목록 하단에서 저장소로 바로 연결한다. */
+export const repoProjects: RepoProject[] = [
+  {
+    title: 'FilmWithAI',
+    tagline: '시놉시스로 스토리·콘티를 생성해 타임라인으로 정리하는 AI 영상 제작 웹 — 몰입캠프 2주차',
+    period: '2025.07 (1주)',
+    engine: 'React · NestJS · OpenAI API',
+    tags: ['Web', 'AI'],
+    href: 'https://github.com/gistjackdaniel/filmWithAi',
+  },
+  {
+    title: 'BOJManager',
+    tagline: '백준 문제와 대회 일정을 관리하는 Android 앱 — 몰입캠프 1주차',
+    period: '2025.07 (1주)',
+    engine: 'Android · Kotlin',
+    tags: ['Android', 'Kotlin'],
+    href: 'https://github.com/mathison0/BOJManager',
+  },
+]
+
 export function getProject(slug: string | undefined): Project | undefined {
   return projects.find((project) => project.slug === slug)
 }
@@ -344,7 +467,7 @@ export function getProject(slug: string | undefined): Project | undefined {
 /** 프로젝트 목록에 등장하는 모든 태그 (등장 순서 유지). */
 export function allTags(): string[] {
   const seen: string[] = []
-  for (const project of projects) {
+  for (const project of [...projects, ...repoProjects]) {
     for (const tag of project.tags) {
       if (!seen.includes(tag)) seen.push(tag)
     }

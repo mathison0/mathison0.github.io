@@ -31,6 +31,10 @@ export const profile = {
       links: [{ label: '자세히', href: '/projects/gametechlab-engine' }],
     },
     {
+      text: 'SKKU × HYU CSE 교류전 AI 부문 3위 — 시뮬레이션 기반 봇, 오프라인 평가 하네스, PPO 비교 실험',
+      links: [{ label: '자세히', href: '/projects/lucky-punch' }],
+    },
+    {
       text: '카이스트 몰입캠프 수료 — 4.5주간 4개 프로젝트 완성 (Godot · Phaser 멀티플레이 게임 등)',
       links: [
         { label: 'FLYFRY', href: '/projects/flyfry' },
@@ -84,6 +88,15 @@ export const timeline: TimelineItem[] = [
     details: [
       '14주간 매주 팀을 바꿔가며 C++ / DirectX 11 자체 게임 엔진을 제작했습니다.',
       '15주차부터 Epic Project로 UE5 플러그인 DynamicRope를 개발해 Fab에 출시했습니다.',
+    ],
+  },
+  {
+    period: '2026.08 — 2026.09',
+    title: '2026 SKKU × HYU CSE 교류전 AI 부문 · 3위',
+    org: '성균관대학교 × 한양대학교',
+    details: [
+      '3인 팀으로 피카츄 배구 봇 대회에 참가해 3위를 했습니다.',
+      '시뮬레이션 기반 룰 봇과 오프라인 대전 하네스를 만들었고, 대회 후 이를 RL 환경으로 확장해 PPO와 비교하고 있습니다.',
     ],
   },
   {

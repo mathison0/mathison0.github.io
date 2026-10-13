@@ -374,6 +374,10 @@
   gap: clamp(1.25rem, 1rem + 1.5vw, 2rem);
 }
 
+.project-grid + .repo-projects {
+  margin-top: var(--sp-8);
+}
+
 .card {
   display: flex;
   flex-direction: column;

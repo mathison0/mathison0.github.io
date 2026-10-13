@@ -55,6 +55,16 @@ export interface Project {
   links: ProjectLink[]
 }
 
+/** 상세 페이지 없이 저장소로 바로 연결하는 소규모 프로젝트. */
+export interface RepoProject {
+  title: string
+  tagline: string
+  period: string
+  engine: string
+  tags: string[]
+  href: string
+}
+
 export interface SkillGroup {
   title: string
   items: string[]
