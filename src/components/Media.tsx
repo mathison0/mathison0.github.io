@@ -80,8 +80,13 @@ function MediaInner({
   }
 }
 
+// 큰 것부터 시도. maxresdefault는 업로드 해상도가 낮으면 없고(404), hq·sd는 4:3 레터박스라 흐리다.
+const THUMB_QUALITIES = ['maxresdefault', 'sddefault', 'hqdefault'] as const
+
 function YouTubeFacade({ id, start, title }: { id: string; start?: number; title: string }) {
   const [activated, setActivated] = useState(false)
+  const [thumbIndex, setThumbIndex] = useState(0)
+  const nextThumb = () => setThumbIndex((i) => Math.min(i + 1, THUMB_QUALITIES.length - 1))
 
   if (activated) {
     const params = new URLSearchParams({ autoplay: '1', rel: '0' })
@@ -104,9 +109,14 @@ function YouTubeFacade({ id, start, title }: { id: string; start?: number; title
       aria-label={`${title} 재생`}
     >
       <img
-        src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
+        src={`https://i.ytimg.com/vi/${id}/${THUMB_QUALITIES[thumbIndex]}.jpg`}
         alt=""
         loading="lazy"
+        onError={nextThumb}
+        // 없는 해상도는 404와 함께 120×90 회색 이미지를 주는데, 브라우저가 이를 정상 로드로 볼 수 있다.
+        onLoad={(e) => {
+          if (e.currentTarget.naturalWidth <= 120) nextThumb()
+        }}
       />
       <span className="media__play">
         <PlayIcon />
