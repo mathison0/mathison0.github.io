@@ -497,14 +497,6 @@ export const repoProjects: RepoProject[] = [
     tags: ['Web', 'AI'],
     href: 'https://github.com/gistjackdaniel/filmWithAi',
   },
-  {
-    title: 'BOJManager',
-    tagline: '백준 문제와 대회 일정을 관리하는 Android 앱 · 몰입캠프 1주차',
-    period: '2025.07 (1주)',
-    engine: 'Android · Kotlin',
-    tags: ['Android', 'Kotlin'],
-    href: 'https://github.com/mathison0/BOJManager',
-  },
 ]
 
 export function getProject(slug: string | undefined): Project | undefined {
