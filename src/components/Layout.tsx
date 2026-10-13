@@ -5,8 +5,8 @@ import { profile } from '../data/profile'
 /** 한 페이지 안의 섹션 id. 상세 페이지에서 눌러도 홈의 해당 섹션으로 간다. */
 const NAV_ITEMS = [
   { hash: 'projects', label: 'Projects' },
-  { hash: 'skills', label: 'Skills' },
   { hash: 'experience', label: 'Experience' },
+  { hash: 'skills', label: 'Skills' },
   { hash: 'contact', label: 'Contact' },
 ]
 

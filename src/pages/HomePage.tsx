@@ -7,7 +7,7 @@ import { profile, skillGroups, timeline } from '../data/profile'
 import { projects, repoProjects } from '../data/projects'
 
 /**
- * 한 페이지 포트폴리오: 요약 → 프로젝트 → 기술 스택 → 이력 → 연락처.
+ * 한 페이지 포트폴리오: 요약 → 프로젝트 → 이력 → 기술 스택 → 연락처.
  * 상단 메뉴는 각 섹션 id로 이동한다 (Layout의 NAV_ITEMS).
  */
 export default function HomePage() {
@@ -160,26 +160,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="skills" className="section" aria-labelledby="skills-heading">
-        <div className="container">
-          <h2 id="skills-heading" className="section-title">
-            기술 스택
-          </h2>
-          <div className="about-grid">
-            {skillGroups.map((group) => (
-              <div key={group.title} className="skill-group">
-                <h3 className="skill-group__title">{group.title}</h3>
-                <ul className="prose" style={{ fontSize: 'var(--fs-sm)' }}>
-                  {group.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section id="experience" className="section" aria-labelledby="experience-heading">
         <div className="container">
           <h2 id="experience-heading" className="section-title">
@@ -206,6 +186,26 @@ export default function HomePage() {
               </li>
             ))}
           </ol>
+        </div>
+      </section>
+
+      <section id="skills" className="section" aria-labelledby="skills-heading">
+        <div className="container">
+          <h2 id="skills-heading" className="section-title">
+            기술 스택
+          </h2>
+          <div className="about-grid">
+            {skillGroups.map((group) => (
+              <div key={group.title} className="skill-group">
+                <h3 className="skill-group__title">{group.title}</h3>
+                <ul className="prose" style={{ fontSize: 'var(--fs-sm)' }}>
+                  {group.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
