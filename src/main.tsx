@@ -16,7 +16,7 @@ const router = createBrowserRouter([
       // 예전 분리 페이지 주소는 한 페이지의 해당 섹션으로 보낸다.
       { path: 'projects', element: <Navigate to="/#projects" replace /> },
       { path: 'projects/:slug', element: <ProjectDetailPage /> },
-      { path: 'about', element: <Navigate to="/#about" replace /> },
+      { path: 'about', element: <Navigate to="/#skills" replace /> },
       { path: '*', element: <NotFoundPage /> },
     ],
   },

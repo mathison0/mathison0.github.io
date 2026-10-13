@@ -73,14 +73,6 @@
   content: ' 접기 ▴';
 }
 
-.about-intro {
-  max-width: var(--w-prose);
-}
-
-.about-skills-title {
-  margin-top: var(--sp-7);
-}
-
 /* ── 헤더 / 내비게이션 ─────────────────────────────────── */
 .site-header {
   position: sticky;
@@ -367,6 +359,10 @@
   font-size: var(--fs-sm);
   font-weight: 500;
   white-space: nowrap;
+}
+
+.hero__phrase {
+  display: inline-block;
 }
 
 .highlights__lead {

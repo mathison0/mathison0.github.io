@@ -3,7 +3,12 @@ import type { SkillGroup, TimelineItem } from '../types'
 export const profile = {
   name: 'Seyoung Park',
   nameKo: '박세영',
-  headline: '엔진 내부를 이해하고, 결과는 측정으로 검증합니다.',
+  /** 구절 단위로 나눠 두면 화면이 넓을 때 구절 경계(쉼표)에서만 줄이 바뀐다. */
+  headline: [
+    '자체 게임 엔진을 만든 경험으로 UE5 물리 시뮬레이션 플러그인을 출시했고,',
+    '게임 AI 봇과 강화학습 평가 환경을 만들었습니다.',
+  ],
+  /** 링크 미리보기(SEO description)용 소개. 화면에는 headline이 소개 역할을 한다. */
   intro:
     '크래프톤 정글 게임테크랩에서 14주간 C++와 DirectX 11로 자체 게임 엔진을 만들었고, ' +
     '그 경험을 바탕으로 Unreal Engine 5용 GPU 로프 시뮬레이션 플러그인 DynamicRope를 개발해 ' +

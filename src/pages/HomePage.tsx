@@ -7,7 +7,7 @@ import { profile, skillGroups, timeline } from '../data/profile'
 import { projects, repoProjects } from '../data/projects'
 
 /**
- * 한 페이지 포트폴리오: 요약 → 프로젝트 → 소개·기술 → 이력 → 연락처.
+ * 한 페이지 포트폴리오: 요약 → 프로젝트 → 기술 스택 → 이력 → 연락처.
  * 상단 메뉴는 각 섹션 id로 이동한다 (Layout의 NAV_ITEMS).
  */
 export default function HomePage() {
@@ -15,7 +15,7 @@ export default function HomePage() {
   const others = projects.filter((project) => !project.featured)
   const { hash } = useLocation()
 
-  // /#about 같은 주소로 바로 들어오거나 /about에서 리다이렉트된 경우에도 해당 섹션으로 이동
+  // /#skills 같은 주소로 바로 들어오거나 /about에서 리다이렉트된 경우에도 해당 섹션으로 이동
   useEffect(() => {
     if (hash) document.getElementById(hash.slice(1))?.scrollIntoView()
   }, [hash])
@@ -30,7 +30,14 @@ export default function HomePage() {
           <h1 className="hero__name">
             {profile.nameKo} <span className="hero__name-en">{profile.name}</span>
           </h1>
-          <p className="hero__headline">{profile.headline}</p>
+          <p className="hero__headline">
+            {profile.headline.map((phrase, index) => (
+              <span key={phrase} className="hero__phrase">
+                {index > 0 ? ' ' : null}
+                {phrase}
+              </span>
+            ))}
+          </p>
 
           <ul className="highlights">
             {profile.highlights.map((item) => (
@@ -144,27 +151,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="about" className="section" aria-labelledby="about-heading">
+      <section id="skills" className="section" aria-labelledby="skills-heading">
         <div className="container">
-          <h2 id="about-heading" className="section-title">
-            소개
+          <h2 id="skills-heading" className="section-title">
+            기술 스택
           </h2>
-          <div className="prose about-intro">
-            <p>{profile.intro}</p>
-            <p>
-              만든 것을 측정으로 검증하는 일을 좋아합니다. 피카츄 배구 AI 대회에 팀으로 참가해
-              3위를 했고, 저는 엔진 물리를 복제한 룰 기반 봇과 실제 엔진으로 수백 세트를 돌리는
-              오프라인 평가 하네스를 만들었습니다. 대회 후에는 이 하네스를 강화학습 환경으로 감싸
-              PPO 에이전트를 학습시키고, 룰 봇과 같은 조건에서 비교했습니다. AI 코딩 에이전트에게
-              실험 실행을 맡기되, 무엇을 채택하고 기각할지는 측정 수치로 판단합니다.
-            </p>
-          </div>
-
-          <h3 className="block__title about-skills-title">기술 스택</h3>
           <div className="about-grid">
             {skillGroups.map((group) => (
               <div key={group.title} className="skill-group">
-                <h4 className="skill-group__title">{group.title}</h4>
+                <h3 className="skill-group__title">{group.title}</h3>
                 <ul className="prose" style={{ fontSize: 'var(--fs-sm)' }}>
                   {group.items.map((item) => (
                     <li key={item}>{item}</li>
