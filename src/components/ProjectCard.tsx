@@ -66,6 +66,19 @@ export default function ProjectCard({ project, layout = 'compact' }: ProjectCard
               영상 ↗
             </a>
           ) : null}
+          {project.links
+            .filter((link) => link.cardLabel)
+            .map((link) => (
+              <a
+                key={link.href}
+                className="card__link"
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {link.cardLabel} ↗
+              </a>
+            ))}
         </div>
       </div>
     </article>

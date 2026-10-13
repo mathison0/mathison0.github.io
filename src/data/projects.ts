@@ -97,9 +97,14 @@ export const projects: Project[] = [
       {
         label: 'Fab 스토어 페이지',
         href: 'https://www.fab.com/listings/17f62a8f-387b-48b0-9198-af7273dc3733',
+        cardLabel: 'Fab',
       },
       { label: '공식 문서', href: 'https://teamkeno.github.io/DynamicRopeDocs/' },
-      { label: 'GitHub 저장소', href: 'https://github.com/TeamKeno/DynamicRope' },
+      {
+        label: 'GitHub 저장소',
+        href: 'https://github.com/TeamKeno/DynamicRope',
+        cardLabel: 'GitHub',
+      },
     ],
   },
   {
@@ -203,8 +208,16 @@ export const projects: Project[] = [
       'AI 코딩 에이전트와 협업할 때 엔진 규칙·함정·측정 프로토콜을 문서로 고정해 두고, 실험 실행은 에이전트에 맡기되 채택과 기각은 측정 수치로 판단했습니다.',
     ],
     links: [
-      { label: '봇 · 하네스 저장소', href: 'https://github.com/mathison0/LuckyPunch' },
-      { label: 'RL 실험 저장소', href: 'https://github.com/mathison0/LuckyPunch-RL' },
+      {
+        label: '봇 · 하네스 저장소',
+        href: 'https://github.com/mathison0/LuckyPunch',
+        cardLabel: 'GitHub (봇)',
+      },
+      {
+        label: 'RL 실험 저장소',
+        href: 'https://github.com/mathison0/LuckyPunch-RL',
+        cardLabel: 'GitHub (RL)',
+      },
       {
         label: 'RL 실험 보고서',
         href: 'https://github.com/mathison0/LuckyPunch-RL/blob/main/docs/strategy/rl.md',
@@ -341,6 +354,7 @@ export const projects: Project[] = [
       {
         label: 'GitHub 저장소 (주차별 통합)',
         href: 'https://github.com/mathison0/Jungle_GameTechLab_Engine',
+        cardLabel: 'GitHub',
       },
     ],
   },
@@ -395,7 +409,7 @@ export const projects: Project[] = [
       '기획부터 개발, exe 빌드까지 한 사이클을 처음으로 완주한 프로젝트입니다.',
     ],
     links: [
-      { label: 'GitHub 저장소', href: 'https://github.com/mathison0/FLYFRY' },
+      { label: 'GitHub 저장소', href: 'https://github.com/mathison0/FLYFRY', cardLabel: 'GitHub' },
       {
         label: '프로젝트 소개 (Notion)',
         href: 'https://countingbeats.notion.site/madcamp-project3-flyfry',
@@ -452,7 +466,7 @@ export const projects: Project[] = [
       '일주일 안에 기획부터 구현, 밸런싱까지 도는 속도전에서 우선순위 결정이 가장 중요했습니다.',
     ],
     links: [
-      { label: 'GitHub 저장소', href: 'https://github.com/mathison0/RPG_Slime' },
+      { label: 'GitHub 저장소', href: 'https://github.com/mathison0/RPG_Slime', cardLabel: 'GitHub' },
       {
         label: '프로젝트 소개 (Notion)',
         href: 'https://countingbeats.notion.site/madcamp-project4-slime-rpg',

@@ -21,6 +21,8 @@ export interface CaseStudy {
 export interface ProjectLink {
   label: string
   href: string
+  /** 프로젝트 카드 하단에 바로 노출할 짧은 이름 (예: 'GitHub'). 없으면 카드에는 표시하지 않는다. */
+  cardLabel?: string
 }
 
 export interface Project {

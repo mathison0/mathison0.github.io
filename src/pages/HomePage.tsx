@@ -139,7 +139,7 @@ export default function HomePage() {
                           target="_blank"
                           rel="noreferrer"
                         >
-                          GitHub 저장소 ↗
+                          GitHub ↗
                         </a>
                       </div>
                     </div>

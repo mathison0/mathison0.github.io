@@ -58,6 +58,23 @@ export default function ProjectDetailPage() {
               <dd>{project.platform}</dd>
             </div>
           </dl>
+
+          {/* 저장소·스토어 링크를 영상보다 먼저 보이게 한다 (하단에도 같은 링크가 있다) */}
+          {project.links.length > 0 ? (
+            <div className="btn-row detail-header__links">
+              {project.links.map((link) => (
+                <a
+                  key={link.href + link.label}
+                  className="btn btn--ghost"
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {link.label} ↗
+                </a>
+              ))}
+            </div>
+          ) : null}
         </div>
       </header>
 

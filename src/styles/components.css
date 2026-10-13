@@ -544,6 +544,7 @@
 .card__footer {
   display: flex;
   gap: var(--sp-4);
+  flex-wrap: wrap;
   margin-top: auto;
   padding-top: var(--sp-2);
 }
@@ -648,6 +649,10 @@
 .detail-header__summary {
   margin-top: var(--sp-4);
   max-width: 62ch;
+}
+
+.detail-header__links {
+  margin-top: var(--sp-5);
 }
 
 .meta-grid {
