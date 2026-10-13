@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import ProjectCard from '../components/ProjectCard'
 import Seo from '../components/Seo'
-import { profile, timeline } from '../data/profile'
+import { profile } from '../data/profile'
 import { projects } from '../data/projects'
 
 export default function HomePage() {
@@ -24,8 +24,9 @@ export default function HomePage() {
 
           <ul className="highlights">
             {profile.highlights.map((item) => (
-              <li key={item.text} className="highlights__item">
-                {item.text}
+              <li key={item.lead} className="highlights__item">
+                <strong className="highlights__lead">{item.lead}</strong>
+                {'text' in item ? `: ${item.text}` : null}
                 {'links' in item
                   ? item.links.map((link) =>
                       link.href.startsWith('/') ? (
@@ -52,6 +53,9 @@ export default function HomePage() {
               </li>
             ))}
           </ul>
+          <Link className="hero__more" to="/about">
+            이력 전체 보기 →
+          </Link>
 
           <div className="btn-row hero__actions">
             <Link className="btn btn--primary" to="/projects">
@@ -83,36 +87,6 @@ export default function HomePage() {
               <ProjectCard key={project.slug} project={project} layout="wide" />
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="home-timeline-heading">
-        <div className="container">
-          <div className="section-head">
-            <h2 id="home-timeline-heading">이력</h2>
-            <Link to="/about">소개 더 보기 →</Link>
-          </div>
-          <ol className="timeline">
-            {timeline.map((item) => (
-              <li key={item.period + item.title}>
-                <div className="timeline__row">
-                  <p className="timeline__period">{item.period}</p>
-                  <div>
-                    <h3 className="timeline__title">{item.title}</h3>
-                    <p className="timeline__org">{item.org}</p>
-                    <ul
-                      className="prose"
-                      style={{ marginTop: 'var(--sp-3)', fontSize: 'var(--fs-sm)' }}
-                    >
-                      {item.details.filter(Boolean).map((detail) => (
-                        <li key={detail}>{detail}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ol>
         </div>
       </section>
     </>

@@ -3,7 +3,7 @@ import type { SkillGroup, TimelineItem } from '../types'
 export const profile = {
   name: 'Seyoung Park',
   nameKo: '박세영',
-  headline: '엔진을 직접 만들어 봤기에, 엔진 내부까지 파고들어 문제를 해결합니다.',
+  headline: '엔진 내부를 이해하고, 시뮬레이션을 만들어 측정으로 검증합니다.',
   intro:
     'C++와 Unreal Engine 5로 게임 클라이언트를 만듭니다. 크래프톤 정글 게임테크랩에서 14주간 ' +
     '자체 게임 엔진을 만들었고, 그 경험을 바탕으로 UE5 플러그인 DynamicRope를 개발해 Fab에 출시했습니다.',
@@ -13,12 +13,13 @@ export const profile = {
   bojUrl: 'https://solved.ac/profile/seyoungpark',
   resumeUrl: '', // 이력서 PDF를 public/ 에 두고 '/resume.pdf' 처럼 지정
   /**
-   * 홈 첫 화면의 커버 레터(요약): 4~5줄로 자신을 요약.
+   * 홈 첫 화면의 커버 레터(요약): 결과를 앞(lead, 굵게)에, 맥락을 뒤(text)에 둔다.
    * links를 주면 해당 줄 끝에 링크가 붙는다 (내부 경로 '/projects/...' 또는 외부 URL).
    */
   highlights: [
     {
-      text: 'Unreal Engine 5 플러그인 DynamicRope 출시: GPU XPBD 로프 시뮬레이션 · 본 래핑',
+      lead: 'UE5 플러그인 DynamicRope Fab 출시',
+      text: 'GPU 로프 시뮬레이션',
       links: [
         {
           label: 'Fab',
@@ -27,26 +28,29 @@ export const profile = {
       ],
     },
     {
-      text: '크래프톤 정글 게임테크랩 3기: C++ / DirectX 11 자체 게임 엔진 14주 제작',
+      lead: 'C++ / DirectX 11 자체 게임 엔진 14주 제작',
+      text: '크래프톤 정글 게임테크랩',
       links: [{ label: '자세히', href: '/projects/gametechlab-engine' }],
     },
     {
-      text: 'SKKU × HYU CSE 교류전 AI 부문 3위: 시뮬레이션 기반 봇, 오프라인 평가 하네스, PPO 비교 실험',
+      lead: 'SKKU × HYU CSE 교류전 AI 부문 3위',
+      text: '시뮬레이션 기반 봇 · 평가 하네스 · RL 실험',
       links: [{ label: '자세히', href: '/projects/lucky-punch' }],
     },
     {
-      text: '카이스트 몰입캠프 수료: 4.5주간 4개 프로젝트 완성 (Godot · Phaser 멀티플레이 게임 등)',
+      lead: '카이스트 몰입캠프 수료',
+      text: '4.5주간 4개 프로젝트',
       links: [
         { label: 'FLYFRY', href: '/projects/flyfry' },
         { label: 'RPG SLIME', href: '/projects/rpg-slime' },
       ],
     },
     {
-      text: '백준 Platinum 5, 알고리즘 동아리 ALOHA 운영진·멘토, HCPC Beginner 부문 대상',
+      lead: '백준 Platinum 5 · ALOHA 운영진 · HCPC Beginner 대상',
       links: [{ label: 'solved.ac', href: 'https://solved.ac/profile/seyoungpark' }],
     },
     {
-      text: '한양대학교 컴퓨터소프트웨어학부 4학년 (휴학 중)',
+      lead: '한양대학교 컴퓨터소프트웨어학부 4학년 (휴학 중)',
     },
   ],
   /** 홈 상단에 노출되는 요약 지표. */
