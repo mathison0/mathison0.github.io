@@ -106,7 +106,7 @@ export const timeline: TimelineItem[] = [
     ],
   },
   {
-    period: '2023.03 — 재학 중 (2028.02 졸업 예정)',
+    period: '2023.03 — 휴학 중 (2028.02 졸업 예정)',
     title: '컴퓨터소프트웨어학부 학사',
     org: '한양대학교',
     details: [
