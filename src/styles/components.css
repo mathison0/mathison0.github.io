@@ -132,7 +132,7 @@
   text-decoration: none;
 }
 
-.nav__link[aria-current="page"] {
+.nav__link[aria-current] {
   color: var(--c-text);
   background: var(--c-surface-strong);
 }
@@ -301,7 +301,12 @@
 
 /* ── 홈: 히어로 ─────────────────────────────────────────── */
 .hero {
-  padding-block: clamp(3rem, 2rem + 6vw, 6rem) clamp(2rem, 1.5rem + 3vw, 3.5rem);
+  padding-top: clamp(3rem, 2rem + 6vw, 6rem);
+}
+
+/* 히어로 바로 다음 섹션(대표 프로젝트)은 요약에 붙여서 이어 읽히게 한다 */
+.hero + .section {
+  padding-top: clamp(2rem, 1.5rem + 2vw, 3rem);
 }
 
 .hero__name {
@@ -376,10 +381,6 @@
   padding-left: 1.1rem;
   font-size: var(--fs-sm);
   font-weight: 500;
-}
-
-.hero__actions {
-  margin-top: var(--sp-6);
 }
 
 /* ── 지표 / 요약 그리드 ─────────────────────────────────── */

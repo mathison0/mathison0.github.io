@@ -24,7 +24,7 @@ export default function HomePage() {
     <>
       <Seo title={`${profile.name}`} description={profile.intro} />
 
-      {/* 커버 레터형 히어로: 이름·핵심 성과·연락 수단이 첫 화면에 다 보이도록 */}
+      {/* 커버 레터형 히어로: 이름·헤드라인·핵심 성과가 첫 화면에 다 보이도록 */}
       <section className="hero" aria-label="프로필 요약">
         <div className="container">
           <h1 className="hero__name">
@@ -73,23 +73,6 @@ export default function HomePage() {
           <Link className="hero__more" to={{ hash: 'experience' }}>
             이력 전체 보기 ↓
           </Link>
-
-          <div className="btn-row hero__actions">
-            <Link className="btn btn--primary" to={{ hash: 'projects' }}>
-              프로젝트 보기
-            </Link>
-            <a
-              className="btn btn--ghost"
-              href={profile.githubUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub ↗
-            </a>
-            <a className="btn btn--ghost" href={`mailto:${profile.email}`}>
-              {profile.email}
-            </a>
-          </div>
         </div>
       </section>
 
