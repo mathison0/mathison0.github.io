@@ -731,6 +731,10 @@
   font-size: var(--fs-sm);
 }
 
+.feature__media {
+  margin-top: var(--sp-4);
+}
+
 /* 본문 데이터에서 빈 줄로 나뉜 문단 사이 여백 */
 .feature__body > p + p,
 .problem-solution__row > dd > p + p {

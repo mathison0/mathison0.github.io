@@ -5,6 +5,9 @@ import type { Project, RepoProject } from '../types'
  *  - YouTube:  video: { kind: 'youtube', id: 'iRLpnem_LfQ', caption: '...' }
  *  - 로컬 파일: public/videos/foo.mp4 에 두고
  *              video: { kind: 'file', src: '/videos/foo.mp4', poster: '/videos/foo.jpg' }
+ *  - 스크린샷: public/images/foo.png 에 두고
+ *              video: { kind: 'image', src: '/images/foo.png', alt: '에디터 화면' }
+ *              (가장자리가 잘리면 안 되면 fit: 'contain' 추가)
  *  - 찍을 예정: video: { kind: 'placeholder' } (영상 준비 중 자리 표시)
  *  - 영상 없음: video 생략 (영상 영역 자체를 숨김)
  *
@@ -123,7 +126,11 @@ export const projects: Project[] = [
     engine: '자체 엔진 · DirectX 11 · C++',
     tags: ['C++', 'DirectX', 'Graphics', 'Engine'],
     featured: true,
-    video: { kind: 'placeholder' },
+    video: {
+      kind: 'image',
+      src: '/images/engine-editor.webp',
+      alt: '자체 엔진 에디터: 뷰포트의 스켈레탈 메시 캐릭터, 콘텐츠 브라우저, 프로퍼티 창',
+    },
     responsibilities: [
       'LOD 자동 생성(5주차 최적화 잼): QEM 엣지 붕괴로 LOD 메시 생성, 경계·UV seam 보존과 면 뒤집힘 검사, 화면 점유율 기반 LOD 선택',
       '셰이더 핫리로드: 엔진 실행 중 HLSL을 저장하면 즉시 재컴파일·교체, include 의존성 추적, 컴파일 실패 시 기존 셰이더 유지',
@@ -178,6 +185,11 @@ export const projects: Project[] = [
           '전용 프리뷰 월드와 뷰포트에서 Play/Pause/Loop/재생 속도를 조절하며 확인하고, 이미터 추가·순서 변경, 모듈 추가, ' +
           'Distribution 타입에 맞춘 커브 에디터, undo/redo, 에셋 저장을 지원합니다. 콘텐츠 브라우저에서 에셋을 만들고 ' +
           '더블클릭하거나 컴포넌트 디테일 패널의 버튼으로 바로 에디터에 들어가도록 엔진 워크플로우에 연결했습니다.',
+        media: {
+          kind: 'image',
+          src: '/images/engine-particle-editor.webp',
+          alt: '파티클 에디터: 뷰포트, 이미터 모듈 목록, 디테일 패널, 커브 에디터 4분할 화면',
+        },
       },
       {
         title: 'PhysicsAsset 기반 랙돌과 애니메이션 전환',

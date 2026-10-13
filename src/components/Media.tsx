@@ -10,7 +10,7 @@ interface MediaProps {
 }
 
 /**
- * 프로젝트 영상 표시.
+ * 프로젝트 영상·이미지 표시.
  * YouTube는 클릭 전까지 iframe을 만들지 않는 파사드 패턴으로,
  * 목록 페이지에서 임베드 여러 개가 초기 로딩을 잡아먹는 것을 막는다.
  */
@@ -36,6 +36,16 @@ function MediaInner({ source, title }: { source: MediaSource; title: string }) {
           <source src={source.src} />
           브라우저가 video 태그를 지원하지 않습니다.
         </video>
+      )
+    case 'image':
+      return (
+        <img
+          src={source.src}
+          alt={source.alt ?? title}
+          loading="lazy"
+          decoding="async"
+          style={{ objectFit: source.fit ?? 'cover' }}
+        />
       )
     case 'placeholder':
       return (

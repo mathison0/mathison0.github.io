@@ -2,6 +2,11 @@
 export type MediaSource =
   | { kind: 'youtube'; id: string; start?: number; caption?: string }
   | { kind: 'file'; src: string; poster?: string; caption?: string }
+  /**
+   * 스크린샷 같은 정지 이미지. fit 기본값은 'cover'(영역을 채우고 넘치는 부분은 잘림).
+   * 가장자리 UI가 잘리면 안 되는 스크린샷은 'contain'(전체가 보이고 남는 부분은 여백).
+   */
+  | { kind: 'image'; src: string; alt?: string; fit?: 'cover' | 'contain'; caption?: string }
   | { kind: 'placeholder'; caption?: string }
 
 /** 구현 기능 한 항목: 무엇을 어떻게 만들었는지. */
@@ -9,6 +14,8 @@ export interface Feature {
   title: string
   tech?: string[]
   body: string
+  /** 이 기능을 보여주는 스크린샷/영상 (선택). 상세 페이지에서 본문 바로 아래에 표시된다. */
+  media?: MediaSource
 }
 
 /** 문제 → 접근 → 결과. 기술적 판단 근거를 보여주는 블록. */

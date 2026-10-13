@@ -118,6 +118,11 @@ export default function ProjectDetailPage() {
                   <div className="feature__body">
                     <Paragraphs text={feature.body} />
                   </div>
+                  {feature.media ? (
+                    <div className="feature__media">
+                      <Media source={feature.media} title={feature.title} />
+                    </div>
+                  ) : null}
                 </li>
               ))}
             </ul>
