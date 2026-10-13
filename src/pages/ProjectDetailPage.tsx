@@ -5,6 +5,17 @@ import TagList from '../components/TagList'
 import { getProject } from '../data/projects'
 import NotFoundPage from './NotFoundPage'
 
+/** 본문 문자열을 빈 줄('\n\n') 기준으로 문단을 나눠 렌더링한다. */
+function Paragraphs({ text }: { text: string }) {
+  return (
+    <>
+      {text.split('\n\n').map((paragraph) => (
+        <p key={paragraph}>{paragraph}</p>
+      ))}
+    </>
+  )
+}
+
 export default function ProjectDetailPage() {
   const { slug } = useParams()
   const project = getProject(slug)
@@ -87,7 +98,9 @@ export default function ProjectDetailPage() {
                       </span>
                     ) : null}
                   </div>
-                  <p className="feature__body">{feature.body}</p>
+                  <div className="feature__body">
+                    <Paragraphs text={feature.body} />
+                  </div>
                 </li>
               ))}
             </ul>
@@ -103,15 +116,21 @@ export default function ProjectDetailPage() {
                 <dl key={caseStudy.problem} className="problem-solution">
                   <div className="problem-solution__row">
                     <dt>문제</dt>
-                    <dd>{caseStudy.problem}</dd>
+                    <dd>
+                      <Paragraphs text={caseStudy.problem} />
+                    </dd>
                   </div>
                   <div className="problem-solution__row">
                     <dt>접근</dt>
-                    <dd>{caseStudy.approach}</dd>
+                    <dd>
+                      <Paragraphs text={caseStudy.approach} />
+                    </dd>
                   </div>
                   <div className="problem-solution__row">
                     <dt>결과</dt>
-                    <dd>{caseStudy.result}</dd>
+                    <dd>
+                      <Paragraphs text={caseStudy.result} />
+                    </dd>
                   </div>
                 </dl>
               ))}
