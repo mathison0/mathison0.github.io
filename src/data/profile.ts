@@ -26,12 +26,7 @@ export const profile = {
     {
       lead: 'UE5 플러그인 DynamicRope Fab 출시',
       text: 'GPU 로프 시뮬레이션',
-      links: [
-        {
-          label: 'Fab',
-          href: 'https://www.fab.com/listings/17f62a8f-387b-48b0-9198-af7273dc3733',
-        },
-      ],
+      links: [{ label: '자세히', href: '/projects/dynamic-rope' }],
     },
     {
       lead: 'C++ / DirectX 11 자체 게임 엔진 14주 제작',
