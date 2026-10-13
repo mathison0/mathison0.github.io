@@ -270,7 +270,7 @@ export const projects: Project[] = [
     engine: 'JavaScript · Node.js · Python (Gymnasium · SB3)',
     tags: ['AI', 'RL', 'Simulation', 'JavaScript', 'Python'],
     featured: true,
-    video: { kind: 'placeholder', caption: '대회 플레이 영상 준비 중' },
+    video: { kind: 'youtube', id: 'N1lYJvQTku4', caption: '룰 기반 봇 v16(왼쪽) vs 강화학습 봇 PPO(오른쪽) 대결 영상' },
     responsibilities: [
       '룰 기반 봇 v01~v16: 엔진 물리를 복제한 궤적 시뮬레이션, 파워히트 채점, maximin 예측 수비, 2-ply 서브 채점, 접촉형 상태머신',
       '오프라인 대전 하네스: 반영 지연·시작 위치 지터·시드·진영을 통제해 실제 엔진으로 수백 세트를 돌리고, 버전 간 비교 프로토콜을 정함',
