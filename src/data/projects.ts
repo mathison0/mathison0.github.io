@@ -104,7 +104,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'lucky-punch',
-    title: 'LuckyPunch',
+    title: '피카츄 배구 AI 봇과 강화학습 실험',
     tagline: 'SKKU × HYU 교류전 AI 부문(피카츄 배구 봇) 3위',
     summary:
       '2026 성균관대 × 한양대 CSE 교류전 AI 부문(피카츄 배구 봇 대회)에 팀으로 참가해 3위를 했습니다. ' +
