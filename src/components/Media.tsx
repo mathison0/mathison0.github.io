@@ -39,7 +39,7 @@ function MediaInner({ source, title }: { source: MediaSource; title: string }) {
       )
     case 'placeholder':
       return (
-        <div className="media__placeholder" role="img" aria-label={`${title} — 영상 준비 중`}>
+        <div className="media__placeholder" role="img" aria-label={`${title} (영상 준비 중)`}>
           <PlayIcon />
           <span>영상 준비 중</span>
         </div>

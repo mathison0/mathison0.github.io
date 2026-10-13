@@ -5,7 +5,7 @@ export default function AboutPage() {
   return (
     <>
       <Seo
-        title={`About — ${profile.name}`}
+        title={`About | ${profile.name}`}
         description={`${profile.name}의 소개, 기술 스택, 이력, 연락처.`}
       />
 

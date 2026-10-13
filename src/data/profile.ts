@@ -13,12 +13,12 @@ export const profile = {
   bojUrl: 'https://solved.ac/profile/seyoungpark',
   resumeUrl: '', // 이력서 PDF를 public/ 에 두고 '/resume.pdf' 처럼 지정
   /**
-   * 홈 첫 화면의 커버 레터(요약) — 4~5줄로 자신을 요약.
+   * 홈 첫 화면의 커버 레터(요약): 4~5줄로 자신을 요약.
    * links를 주면 해당 줄 끝에 링크가 붙는다 (내부 경로 '/projects/...' 또는 외부 URL).
    */
   highlights: [
     {
-      text: 'Unreal Engine 5 플러그인 DynamicRope 출시 — GPU XPBD 로프 시뮬레이션 · 본 래핑',
+      text: 'Unreal Engine 5 플러그인 DynamicRope 출시: GPU XPBD 로프 시뮬레이션 · 본 래핑',
       links: [
         {
           label: 'Fab',
@@ -27,22 +27,22 @@ export const profile = {
       ],
     },
     {
-      text: '크래프톤 정글 게임테크랩 3기 — C++ / DirectX 11 자체 게임 엔진 14주 제작',
+      text: '크래프톤 정글 게임테크랩 3기: C++ / DirectX 11 자체 게임 엔진 14주 제작',
       links: [{ label: '자세히', href: '/projects/gametechlab-engine' }],
     },
     {
-      text: 'SKKU × HYU CSE 교류전 AI 부문 3위 — 시뮬레이션 기반 봇, 오프라인 평가 하네스, PPO 비교 실험',
+      text: 'SKKU × HYU CSE 교류전 AI 부문 3위: 시뮬레이션 기반 봇, 오프라인 평가 하네스, PPO 비교 실험',
       links: [{ label: '자세히', href: '/projects/lucky-punch' }],
     },
     {
-      text: '카이스트 몰입캠프 수료 — 4.5주간 4개 프로젝트 완성 (Godot · Phaser 멀티플레이 게임 등)',
+      text: '카이스트 몰입캠프 수료: 4.5주간 4개 프로젝트 완성 (Godot · Phaser 멀티플레이 게임 등)',
       links: [
         { label: 'FLYFRY', href: '/projects/flyfry' },
         { label: 'RPG SLIME', href: '/projects/rpg-slime' },
       ],
     },
     {
-      text: '백준 Platinum 5 — 알고리즘 동아리 ALOHA 운영진·멘토, HCPC Beginner 부문 대상',
+      text: '백준 Platinum 5, 알고리즘 동아리 ALOHA 운영진·멘토, HCPC Beginner 부문 대상',
       links: [{ label: 'solved.ac', href: 'https://solved.ac/profile/seyoungpark' }],
     },
     {
@@ -86,46 +86,46 @@ export const timeline: TimelineItem[] = [
     title: '2026 SKKU × HYU CSE 교류전 AI 부문 · 3위',
     org: '성균관대학교 × 한양대학교',
     details: [
-      '3인 팀으로 피카츄 배구 봇 대회에 참가해 3위를 했습니다.',
-      '시뮬레이션 기반 룰 봇과 오프라인 대전 하네스를 만들었고, 대회 후 이를 RL 환경으로 확장해 PPO와 비교하고 있습니다.',
+      '3인 팀으로 피카츄 배구 봇 대회 참가, 3위 수상.',
+      '시뮬레이션 기반 룰 봇과 오프라인 대전 하네스 제작, 대회 후 RL 환경으로 확장해 PPO와 비교.',
     ],
   },
   {
-    period: '2026.03 — 2026.08',
+    period: '2026.03 ~ 2026.08',
     title: '크래프톤 정글 게임테크랩 3기',
     org: '크래프톤 정글',
     details: [
-      '14주간 매주 팀을 바꿔가며 C++ / DirectX 11 자체 게임 엔진을 제작했습니다.',
-      '15주차부터 Epic Project로 UE5 플러그인 DynamicRope를 개발해 Fab에 출시했습니다.',
+      '14주간 매주 팀을 바꿔가며 C++ / DirectX 11 자체 게임 엔진 제작.',
+      '15주차부터 Epic Project로 UE5 플러그인 DynamicRope 개발, Fab 출시.',
     ],
   },
   {
-    period: '2025.07 — 2025.08',
+    period: '2025.07 ~ 2025.08',
     title: '카이스트 몰입캠프',
     org: '카이스트',
     details: [
-      '4.5주간 매주 팀을 바꿔 4개 프로젝트를 기획부터 구현·시연까지 완성했습니다.',
-      'Android 앱 · AI 영상 제작 웹 · Godot 협동 게임 · 웹 멀티플레이 RPG를 개발했습니다.',
+      '4.5주간 매주 팀을 바꿔 4개 프로젝트를 기획부터 구현·시연까지 완성.',
+      'Android 앱 · AI 영상 제작 웹 · Godot 협동 게임 · 웹 멀티플레이 RPG 개발.',
     ],
   },
   {
-    period: '2023.03 — 2025.02',
+    period: '2023.03 ~ 2025.02',
     title: '알고리즘 동아리 ALOHA · 운영진',
     org: '한양대학교',
     details: [
-      '운영진이자 멘토로 활동하며 알고리즘 스터디를 이끌고 동아리 내/교내 알고리즘 대회(HCPC)를 운영했습니다.',
-      'HCPC(한양대 프로그래밍 경시대회) Beginner 부문 대상을 수상했습니다.',
+      '운영진이자 멘토로 알고리즘 스터디를 이끌고 동아리 내/교내 알고리즘 대회(HCPC) 운영.',
+      'HCPC(한양대 프로그래밍 경시대회) Beginner 부문 대상 수상.',
       '백준 solved.ac Platinum 5 달성.',
     ],
   },
   {
-    period: '2023.03 — 휴학 중 (2028.02 졸업 예정)',
+    period: '2023.03 ~ 휴학 중 (2028.02 졸업 예정)',
     title: '컴퓨터소프트웨어학부 학사',
     org: '한양대학교',
     details: [
-      '그래픽스·수학 — 컴퓨터그래픽스, 선형대수, 수치해석',
-      '시스템 — 운영체제, 시스템프로그래밍, 컴퓨터구조론',
-      '기반 — 자료구조론, 알고리즘및문제해결기법, 컴퓨터네트워크, 객체지향시스템설계',
+      '그래픽스·수학: 컴퓨터그래픽스, 선형대수, 수치해석',
+      '시스템: 운영체제, 시스템프로그래밍, 컴퓨터구조론',
+      '기반: 자료구조론, 알고리즘및문제해결기법, 컴퓨터네트워크, 객체지향시스템설계',
     ],
   },
 ]

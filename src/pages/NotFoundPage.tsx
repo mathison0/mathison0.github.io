@@ -4,7 +4,7 @@ import Seo from '../components/Seo'
 export default function NotFoundPage() {
   return (
     <>
-      <Seo title="페이지를 찾을 수 없음 — Mathison" />
+      <Seo title="페이지를 찾을 수 없음 | Mathison" />
       <section className="container notfound">
         <p className="eyebrow">404</p>
         <h1 style={{ marginTop: 'var(--sp-3)' }}>페이지를 찾을 수 없습니다</h1>

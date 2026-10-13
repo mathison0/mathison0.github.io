@@ -18,7 +18,7 @@ export default function ProjectsPage() {
   return (
     <>
       <Seo
-        title="Projects — Mathison"
+        title="Projects | Mathison"
         description="게임 클라이언트 프로젝트 목록. 전투 시스템, 렌더링, 네트워크 동기화, 에디터 툴."
       />
 
