@@ -38,7 +38,7 @@ export const profile = {
       links: [{ label: '자세히', href: '/projects/lucky-punch' }],
     },
     {
-      lead: '백준 Platinum 5 · ALOHA 운영진 · HCPC Beginner 대상',
+      lead: '백준 Platinum 5 · 알고리즘 동아리 ALOHA 운영진 · HCPC Beginner 대상',
       links: [{ label: 'solved.ac', href: 'https://solved.ac/profile/seyoungpark' }],
     },
   ],
