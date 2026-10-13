@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
-import { Link, NavLink, Outlet, ScrollRestoration, useLocation } from 'react-router-dom'
+import { Link, Outlet, ScrollRestoration, useLocation } from 'react-router-dom'
 import { profile } from '../data/profile'
 
+/** 한 페이지 안의 섹션 id. 상세 페이지에서 눌러도 홈의 해당 섹션으로 간다. */
 const NAV_ITEMS = [
-  { to: '/', label: 'Home' },
-  { to: '/projects', label: 'Projects' },
-  { to: '/about', label: 'About' },
+  { hash: 'projects', label: 'Projects' },
+  { hash: 'about', label: 'About' },
+  { hash: 'experience', label: 'Experience' },
+  { hash: 'contact', label: 'Contact' },
 ]
 
 export default function Layout() {
@@ -15,7 +17,7 @@ export default function Layout() {
   // 페이지 이동 시 모바일 메뉴 닫기
   useEffect(() => {
     setMenuOpen(false)
-  }, [location.pathname])
+  }, [location.pathname, location.hash])
 
   return (
     <div className="site">
@@ -41,14 +43,9 @@ export default function Layout() {
 
           <nav id="site-nav" className="nav" data-open={menuOpen} aria-label="주 메뉴">
             {NAV_ITEMS.map((item) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                end={item.to === '/'}
-                className="nav__link"
-              >
+              <Link key={item.hash} to={{ pathname: '/', hash: item.hash }} className="nav__link">
                 {item.label}
-              </NavLink>
+              </Link>
             ))}
           </nav>
         </div>

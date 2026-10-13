@@ -15,7 +15,7 @@ export default function NotFoundPage() {
           <Link className="btn btn--primary" to="/">
             홈으로
           </Link>
-          <Link className="btn btn--ghost" to="/projects">
+          <Link className="btn btn--ghost" to={{ pathname: '/', hash: 'projects' }}>
             프로젝트 보기
           </Link>
         </div>

@@ -1,20 +1,30 @@
-import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import ProjectCard from '../components/ProjectCard'
 import Seo from '../components/Seo'
-import { profile } from '../data/profile'
-import { projects } from '../data/projects'
+import TagList from '../components/TagList'
+import { profile, skillGroups, timeline } from '../data/profile'
+import { projects, repoProjects } from '../data/projects'
 
+/**
+ * 한 페이지 포트폴리오: 요약 → 프로젝트 → 소개·기술 → 이력 → 연락처.
+ * 상단 메뉴는 각 섹션 id로 이동한다 (Layout의 NAV_ITEMS).
+ */
 export default function HomePage() {
   const featured = projects.filter((project) => project.featured)
+  const others = projects.filter((project) => !project.featured)
+  const { hash } = useLocation()
+
+  // /#about 같은 주소로 바로 들어오거나 /about에서 리다이렉트된 경우에도 해당 섹션으로 이동
+  useEffect(() => {
+    if (hash) document.getElementById(hash.slice(1))?.scrollIntoView()
+  }, [hash])
 
   return (
     <>
-      <Seo
-        title={`${profile.name}`}
-        description={profile.intro}
-      />
+      <Seo title={`${profile.name}`} description={profile.intro} />
 
-      {/* 커버 레터형 히어로: 이름·요약·연락 수단이 첫 화면에 다 보이도록 */}
+      {/* 커버 레터형 히어로: 이름·핵심 성과·연락 수단이 첫 화면에 다 보이도록 */}
       <section className="hero" aria-label="프로필 요약">
         <div className="container">
           <h1 className="hero__name">
@@ -53,12 +63,12 @@ export default function HomePage() {
               </li>
             ))}
           </ul>
-          <Link className="hero__more" to="/about">
-            이력 전체 보기 →
+          <Link className="hero__more" to={{ hash: 'experience' }}>
+            이력 전체 보기 ↓
           </Link>
 
           <div className="btn-row hero__actions">
-            <Link className="btn btn--primary" to="/projects">
+            <Link className="btn btn--primary" to={{ hash: 'projects' }}>
               프로젝트 보기
             </Link>
             <a
@@ -76,17 +86,166 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="featured-heading">
+      <section id="projects" className="section" aria-labelledby="featured-heading">
         <div className="container">
-          <div className="section-head">
-            <h2 id="featured-heading">대표 프로젝트</h2>
-            <Link to="/projects">전체 보기 →</Link>
-          </div>
+          <h2 id="featured-heading" className="section-title">
+            대표 프로젝트
+          </h2>
           <div className="featured-list">
             {featured.map((project) => (
               <ProjectCard key={project.slug} project={project} layout="wide" />
             ))}
           </div>
+          {/* 보조 프로젝트는 기본으로 접어 둔다 */}
+          <details className="more-projects">
+            <summary className="more-projects__summary">
+              그 외 프로젝트 {others.length + repoProjects.length}개
+            </summary>
+            <h3 className="block__title">그 외 게임 프로젝트</h3>
+            <div className="project-grid">
+              {others.map((project) => (
+                <ProjectCard key={project.slug} project={project} />
+              ))}
+            </div>
+
+            <div className="repo-projects">
+              <h3 className="block__title">게임 외 프로젝트</h3>
+              <div className="project-grid">
+                {repoProjects.map((project) => (
+                  <article key={project.href} className="card">
+                    <div className="card__body">
+                      <div className="card__meta">
+                        <span>{project.period}</span>
+                        <span>{project.engine}</span>
+                      </div>
+                      <h4 className="card__title">
+                        <a href={project.href} target="_blank" rel="noreferrer">
+                          {project.title}
+                        </a>
+                      </h4>
+                      <p className="card__summary">{project.tagline}</p>
+                      <TagList tags={project.tags} />
+                      <div className="card__footer">
+                        <a
+                          className="card__link"
+                          href={project.href}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          GitHub 저장소 ↗
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section id="about" className="section" aria-labelledby="about-heading">
+        <div className="container">
+          <h2 id="about-heading" className="section-title">
+            소개
+          </h2>
+          <div className="prose about-intro">
+            <p>{profile.intro}</p>
+            <p>
+              엔진을 블랙박스로 두지 않으려 합니다. 매주 팀을 바꿔가며 다른 사람의 엔진 코드를
+              이어받아 확장했고, DynamicRope를 만들 때는 언리얼 엔진 소스를 따라 들어가 문제를
+              풀었습니다. 덕분에 낯선 코드베이스에 빠르게 적응하는 것이 강점이 되었습니다.
+            </p>
+          </div>
+
+          <h3 className="block__title about-skills-title">기술 스택</h3>
+          <div className="about-grid">
+            {skillGroups.map((group) => (
+              <div key={group.title} className="skill-group">
+                <h4 className="skill-group__title">{group.title}</h4>
+                <ul className="prose" style={{ fontSize: 'var(--fs-sm)' }}>
+                  {group.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" className="section" aria-labelledby="experience-heading">
+        <div className="container">
+          <h2 id="experience-heading" className="section-title">
+            이력
+          </h2>
+          <ol className="timeline">
+            {timeline.map((item) => (
+              <li key={item.period + item.title}>
+                <div className="timeline__row">
+                  <p className="timeline__period">{item.period}</p>
+                  <div>
+                    <h3 className="timeline__title">{item.title}</h3>
+                    <p className="timeline__org">{item.org}</p>
+                    <ul
+                      className="prose"
+                      style={{ marginTop: 'var(--sp-3)', fontSize: 'var(--fs-sm)' }}
+                    >
+                      {item.details.filter(Boolean).map((detail) => (
+                        <li key={detail}>{detail}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section id="contact" className="section" aria-labelledby="contact-heading">
+        <div className="container">
+          <h2 id="contact-heading" className="section-title">
+            연락처
+          </h2>
+          <dl className="contact-list">
+            <div>
+              <dt>Email</dt>
+              <dd>
+                <a href={`mailto:${profile.email}`}>{profile.email}</a>
+              </dd>
+            </div>
+            <div>
+              <dt>GitHub</dt>
+              <dd>
+                <a href={profile.githubUrl} target="_blank" rel="noreferrer">
+                  {profile.githubUrl.replace('https://', '')}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt>solved.ac</dt>
+              <dd>
+                <a href={profile.bojUrl} target="_blank" rel="noreferrer">
+                  {profile.bojUrl.replace('https://', '')}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt>Location</dt>
+              <dd>{profile.location}</dd>
+            </div>
+            {profile.resumeUrl ? (
+              <div>
+                <dt>Resume</dt>
+                <dd>
+                  <a href={profile.resumeUrl} target="_blank" rel="noreferrer">
+                    이력서 PDF ↗
+                  </a>
+                </dd>
+              </div>
+            ) : null}
+          </dl>
         </div>
       </section>
     </>

@@ -3,13 +3,13 @@ import type { MediaSource, Project } from '../types'
 import Media from './Media'
 import TagList from './TagList'
 
-function videoHref(source: MediaSource): string | null {
-  switch (source.kind) {
+function videoHref(source: MediaSource | undefined): string | null {
+  switch (source?.kind) {
     case 'youtube':
       return `https://www.youtube.com/watch?v=${source.id}`
     case 'file':
       return source.src
-    case 'placeholder':
+    default:
       return null
   }
 }
@@ -30,7 +30,7 @@ export default function ProjectCard({ project, layout = 'compact' }: ProjectCard
 
   return (
     <article className={wide ? 'card card--wide' : 'card'}>
-      {wide ? (
+      {wide && project.video ? (
         <Media source={project.video} title={`${project.title} 영상`} variant="card" />
       ) : null}
       <div className="card__body">

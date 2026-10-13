@@ -20,7 +20,7 @@ export default function ProjectDetailPage() {
       <header className="detail-header">
         <div className="container">
           <nav className="breadcrumb" aria-label="현재 위치">
-            <Link to="/projects">Projects</Link>
+            <Link to={{ pathname: '/', hash: 'projects' }}>Projects</Link>
             <span aria-hidden="true"> / </span>
             <span>{project.title}</span>
           </nav>
@@ -50,9 +50,11 @@ export default function ProjectDetailPage() {
         </div>
       </header>
 
-      <div className="container">
-        <Media source={project.video} title={`${project.title} 플레이 영상`} />
-      </div>
+      {project.video ? (
+        <div className="container">
+          <Media source={project.video} title={`${project.title} 플레이 영상`} />
+        </div>
+      ) : null}
 
       <div className="container section">
         <div className="detail-body">

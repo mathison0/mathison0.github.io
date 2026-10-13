@@ -5,7 +5,8 @@ import type { Project, RepoProject } from '../types'
  *  - YouTube:  video: { kind: 'youtube', id: 'iRLpnem_LfQ', caption: '...' }
  *  - 로컬 파일: public/videos/foo.mp4 에 두고
  *              video: { kind: 'file', src: '/videos/foo.mp4', poster: '/videos/foo.jpg' }
- *  - 아직 없음: video: { kind: 'placeholder', caption: '영상 준비 중' }
+ *  - 찍을 예정: video: { kind: 'placeholder' } (영상 준비 중 자리 표시)
+ *  - 영상 없음: video 생략 (영상 영역 자체를 숨김)
  *
  * ⚠️ caseStudies(문제 해결 사례)와 일부 responsibilities는 본인이 실제 겪은
  *    내용으로 채워야 합니다. 비워 두면 해당 섹션은 표시되지 않습니다.
@@ -411,7 +412,6 @@ export const projects: Project[] = [
     engine: 'Phaser 3 · Node.js · Socket.io',
     tags: ['Web', 'Network', 'Gameplay', 'JavaScript'],
     featured: false,
-    video: { kind: 'placeholder', caption: '플레이 영상 준비 중' },
     responsibilities: [
       '직업 6종(슬라임·전사·어쌔신·궁수·마법사·서포터)의 스킬 전체 구현: 은신·기습, 타수 조건 스킬, 장판·와드 등',
       '스킬의 서버 측 판정 로직: 팀이 만든 Socket.io 서버 구조 위에서 직업별 스킬 판정과 클라이언트 이펙트를 연결',
@@ -478,15 +478,4 @@ export const repoProjects: RepoProject[] = [
 
 export function getProject(slug: string | undefined): Project | undefined {
   return projects.find((project) => project.slug === slug)
-}
-
-/** 프로젝트 목록에 등장하는 모든 태그 (등장 순서 유지). */
-export function allTags(): string[] {
-  const seen: string[] = []
-  for (const project of [...projects, ...repoProjects]) {
-    for (const tag of project.tags) {
-      if (!seen.includes(tag)) seen.push(tag)
-    }
-  }
-  return seen
 }

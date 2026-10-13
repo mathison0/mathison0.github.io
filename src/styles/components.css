@@ -32,13 +32,53 @@
   border-top: 1px solid var(--c-border);
 }
 
-.section-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--sp-4);
+.section-title {
   margin-bottom: var(--sp-5);
-  flex-wrap: wrap;
+}
+
+.more-projects {
+  margin-top: var(--sp-5);
+}
+
+.more-projects__summary {
+  padding: var(--sp-4);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--c-text-secondary);
+  cursor: pointer;
+  list-style: none;
+}
+
+.more-projects__summary::-webkit-details-marker {
+  display: none;
+}
+
+.more-projects__summary:hover {
+  background: var(--c-surface);
+  color: var(--c-text);
+}
+
+.more-projects__summary::after {
+  content: ' 펼치기 ▾';
+}
+
+.more-projects[open] > .more-projects__summary {
+  margin-bottom: var(--sp-6);
+}
+
+.more-projects[open] > .more-projects__summary::after {
+  content: ' 접기 ▴';
+}
+
+.about-intro {
+  max-width: var(--w-prose);
+}
+
+.about-skills-title {
+  margin-top: var(--sp-7);
 }
 
 /* ── 헤더 / 내비게이션 ─────────────────────────────────── */
@@ -477,12 +517,13 @@
   flex: 1;
 }
 
+/* 기간과 기술 스택은 길이와 상관없이 항상 두 줄로 */
 .card__meta {
   display: flex;
-  gap: var(--sp-3);
+  flex-direction: column;
+  gap: var(--sp-1);
   font-size: var(--fs-xs);
   color: var(--c-text-muted);
-  flex-wrap: wrap;
 }
 
 .card__title {
@@ -792,44 +833,7 @@
   margin: var(--sp-1) 0 0;
 }
 
-/* ── 필터 ───────────────────────────────────────────────── */
-.filter-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--sp-2);
-  margin-bottom: var(--sp-5);
-}
-
-.filter-chip {
-  padding: 0.3rem 0.75rem;
-  border: 1px solid var(--c-border-strong);
-  border-radius: 999px;
-  background: var(--c-bg);
-  font-size: var(--fs-xs);
-  color: var(--c-text-secondary);
-  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
-}
-
-.filter-chip:hover {
-  background: var(--c-surface-strong);
-}
-
-.filter-chip[aria-pressed="true"] {
-  background: var(--c-text);
-  border-color: var(--c-text);
-  color: #fff;
-}
-
-/* ── 빈 상태 / 404 ──────────────────────────────────────── */
-.empty {
-  border: 1px dashed var(--c-border-strong);
-  border-radius: var(--radius);
-  padding: var(--sp-7) var(--sp-5);
-  text-align: center;
-  color: var(--c-text-muted);
-  font-size: var(--fs-sm);
-}
-
+/* ── 404 ──────────────────────────────────────────────── */
 .notfound {
   padding-block: var(--sp-9);
   text-align: center;

@@ -42,8 +42,8 @@ export interface Project {
   tags: string[]
   /** Home에 노출할 대표 프로젝트 여부. */
   featured: boolean
-  /** 대표 플레이 영상. */
-  video: MediaSource
+  /** 대표 플레이 영상. 없으면 영상 영역 자체를 표시하지 않는다. */
+  video?: MediaSource
   /** 추가 영상/이미지 (선택). */
   extraMedia?: MediaSource[]
   /** 담당 범위. */

@@ -38,19 +38,8 @@ export const profile = {
       links: [{ label: '자세히', href: '/projects/lucky-punch' }],
     },
     {
-      lead: '카이스트 몰입캠프 수료',
-      text: '4.5주간 4개 프로젝트',
-      links: [
-        { label: 'FLYFRY', href: '/projects/flyfry' },
-        { label: 'RPG SLIME', href: '/projects/rpg-slime' },
-      ],
-    },
-    {
       lead: '백준 Platinum 5 · ALOHA 운영진 · HCPC Beginner 대상',
       links: [{ label: 'solved.ac', href: 'https://solved.ac/profile/seyoungpark' }],
-    },
-    {
-      lead: '한양대학교 컴퓨터소프트웨어학부 4학년 (휴학 중)',
     },
   ],
   /** 홈 상단에 노출되는 요약 지표. */
@@ -65,20 +54,21 @@ export const profile = {
 export const skillGroups: SkillGroup[] = [
   {
     title: '언어',
-    items: ['C++17 / 20 (주력)'],
+    items: ['C++17 / 20 (주력)', 'Python', 'JavaScript'],
   },
   {
     title: '엔진 · 프레임워크',
     items: [
       'Unreal Engine 5 (Blueprint / C++)',
       'DirectX 11',
+      'Node.js',
     ],
   },
   {
     title: '툴 · 협업',
     items: [
       'Perforce 기반 팀 협업',
-      'Git / Git LFS, GitHub Actions CI',
+      'Git / Git LFS · GitHub',
       'Slack · Notion 기반 협업',
     ],
   },
