@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
+import DataTable from '../components/DataTable'
 import Media from '../components/Media'
 import Seo from '../components/Seo'
 import TagList from '../components/TagList'
@@ -118,6 +119,7 @@ export default function ProjectDetailPage() {
                   <div className="feature__body">
                     <Paragraphs text={feature.body} />
                   </div>
+                  {feature.table ? <DataTable table={feature.table} /> : null}
                   {feature.media ? (
                     <div className="feature__media">
                       <Media source={feature.media} title={feature.title} />
@@ -174,6 +176,19 @@ export default function ProjectDetailPage() {
                   />
                 ))}
               </div>
+            </section>
+          ) : null}
+
+          {project.limitations && project.limitations.length > 0 ? (
+            <section aria-labelledby="limitations-heading">
+              <h2 id="limitations-heading" className="block__title">
+                한계
+              </h2>
+              <ul className="prose">
+                {project.limitations.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             </section>
           ) : null}
 

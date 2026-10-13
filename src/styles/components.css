@@ -877,6 +877,96 @@
   padding-top: var(--sp-4);
 }
 
+/* 그래프: 원본 비율 그대로, 캡션은 아래 */
+.figure {
+  margin: 0;
+}
+
+.figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  background: #fff;
+}
+
+.figure figcaption {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-xs);
+  color: var(--c-text-muted);
+  text-wrap: pretty;
+}
+
+/* 결과 표 */
+.data-table {
+  display: grid;
+  gap: var(--sp-2);
+}
+
+.feature__body + .data-table {
+  margin-top: var(--sp-4);
+}
+
+.data-table__caption,
+.data-table__notes {
+  font-size: var(--fs-xs);
+  color: var(--c-text-muted);
+}
+
+.data-table__notes {
+  margin: 0;
+  padding-left: 1.1em;
+}
+
+.data-table__scroll {
+  overflow-x: auto;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+}
+
+.data-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.data-table th,
+.data-table td {
+  padding: var(--sp-2) var(--sp-3);
+  border-bottom: 1px solid var(--c-border);
+  text-align: right;
+  vertical-align: top;
+}
+
+.data-table thead th {
+  background: var(--c-surface);
+  font-weight: 600;
+  color: var(--c-text-secondary);
+  white-space: nowrap;
+}
+
+.data-table tbody th {
+  text-align: left;
+  font-weight: 500;
+  color: var(--c-text);
+  min-width: 11em;
+}
+
+.data-table thead th:first-child {
+  text-align: left;
+}
+
+.data-table td {
+  color: var(--c-text-secondary);
+  white-space: nowrap;
+}
+
+.data-table tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
 /* ── About ──────────────────────────────────────────────── */
 .about-grid {
   display: grid;

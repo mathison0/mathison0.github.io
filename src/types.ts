@@ -8,13 +8,38 @@ export type MediaSource =
    */
   | { kind: 'image'; src: string; alt?: string; fit?: 'cover' | 'contain'; caption?: string }
   | { kind: 'placeholder'; caption?: string }
+  /**
+   * 그래프처럼 원본 비율을 그대로 보여야 하는 그림. 16:9 상자에 넣지 않고 캡션을 아래에 단다.
+   * width·height는 원본 픽셀 크기(레이아웃 밀림 방지), maxWidth는 화면에 그릴 최대 너비(px).
+   */
+  | {
+      kind: 'figure'
+      src: string
+      alt: string
+      width: number
+      height: number
+      maxWidth?: number
+      caption?: string
+    }
+
+/** 결과 표. 첫 열은 행 이름으로 렌더링된다. */
+export interface DataTable {
+  /** 표 위에 붙는 조건 설명 (예: 지연·세트 수). */
+  caption?: string
+  columns: string[]
+  rows: string[][]
+  /** 표 아래 주석. */
+  notes?: string[]
+}
 
 /** 구현 기능 한 항목: 무엇을 어떻게 만들었는지. */
 export interface Feature {
   title: string
   tech?: string[]
   body: string
-  /** 이 기능을 보여주는 스크린샷/영상 (선택). 상세 페이지에서 본문 바로 아래에 표시된다. */
+  /** 본문 아래에 붙는 결과 표 (선택). */
+  table?: DataTable
+  /** 이 기능을 보여주는 스크린샷/영상 (선택). 상세 페이지에서 본문(과 표) 아래에 표시된다. */
   media?: MediaSource
 }
 
@@ -61,6 +86,8 @@ export interface Project {
   features: Feature[]
   /** 기술적 문제 해결 사례. */
   caseStudies: CaseStudy[]
+  /** 한계 (선택). */
+  limitations?: string[]
   /** 회고 (선택). */
   takeaways?: string[]
   links: ProjectLink[]

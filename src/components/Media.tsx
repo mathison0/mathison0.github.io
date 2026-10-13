@@ -15,6 +15,23 @@ interface MediaProps {
  * 목록 페이지에서 임베드 여러 개가 초기 로딩을 잡아먹는 것을 막는다.
  */
 export default function Media({ source, title, variant = 'standalone' }: MediaProps) {
+  // 그래프는 16:9 상자에 넣으면 잘리거나 여백이 생기므로 원본 비율 그대로 두고 캡션을 단다.
+  if (source.kind === 'figure') {
+    return (
+      <figure className="figure" style={{ maxWidth: source.maxWidth }}>
+        <img
+          src={source.src}
+          alt={source.alt}
+          width={source.width}
+          height={source.height}
+          loading="lazy"
+          decoding="async"
+        />
+        {source.caption ? <figcaption>{source.caption}</figcaption> : null}
+      </figure>
+    )
+  }
+
   const className = `media media--${variant}`
 
   return (
@@ -26,7 +43,13 @@ export default function Media({ source, title, variant = 'standalone' }: MediaPr
   )
 }
 
-function MediaInner({ source, title }: { source: MediaSource; title: string }) {
+function MediaInner({
+  source,
+  title,
+}: {
+  source: Exclude<MediaSource, { kind: 'figure' }>
+  title: string
+}) {
   switch (source.kind) {
     case 'youtube':
       return <YouTubeFacade id={source.id} start={source.start} title={title} />
