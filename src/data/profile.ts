@@ -3,7 +3,7 @@ import type { SkillGroup, TimelineItem } from '../types'
 export const profile = {
   name: 'Seyoung Park',
   nameKo: '박세영',
-  headline: '엔진 내부를 이해하고, 시뮬레이션을 만들어 측정으로 검증합니다.',
+  headline: '엔진 내부를 이해하고, 결과는 측정으로 검증합니다.',
   intro:
     '크래프톤 정글 게임테크랩에서 14주간 C++와 DirectX 11로 자체 게임 엔진을 만들었고, ' +
     '그 경험을 바탕으로 Unreal Engine 5용 GPU 로프 시뮬레이션 플러그인 DynamicRope를 개발해 ' +
