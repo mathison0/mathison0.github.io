@@ -5,9 +5,9 @@ export const profile = {
   nameKo: '박세영',
   headline: '엔진 내부를 이해하고, 시뮬레이션을 만들어 측정으로 검증합니다.',
   intro:
-    'C++와 Unreal Engine 5로 게임과 시뮬레이션을 만듭니다. 크래프톤 정글 게임테크랩에서 14주간 ' +
-    'DirectX 11 자체 게임 엔진을 만들었고, 그 경험을 바탕으로 GPU 로프 시뮬레이션 플러그인 ' +
-    'DynamicRope를 개발해 Fab에 출시했습니다.',
+    '크래프톤 정글 게임테크랩에서 14주간 C++와 DirectX 11로 자체 게임 엔진을 만들었고, ' +
+    '그 경험을 바탕으로 Unreal Engine 5용 GPU 로프 시뮬레이션 플러그인 DynamicRope를 개발해 ' +
+    'Fab에 출시했습니다.',
   location: 'Seoul, KR',
   email: 'seyoungpark@hanyang.ac.kr',
   githubUrl: 'https://github.com/mathison0',
