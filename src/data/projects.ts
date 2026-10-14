@@ -87,7 +87,7 @@ export const projects: Project[] = [
         body:
           '던지기/당기기/해제가 준비된 위엘더 컴포넌트, 프리셋 에셋, stat DynamicRope 프로파일링 대시보드, ' +
           '슬립·거리 LOD·컬링, 블루프린트 노출 API와 자동화 테스트까지, 외부에 공개 배포하는 플러그인으로서 ' +
-          '필요한 표면을 팀이 함께 갖춰 출시했습니다. 출시 후 Fab 평점 5.0을 유지하고 있습니다.\n\n' +
+          '필요한 표면을 팀이 함께 갖춰 출시했습니다.\n\n' +
           '그중 저는 Gameplay Debugger 진단 뷰와 디테일 패널 노출 정리를 맡았습니다.',
       },
     ],
@@ -256,7 +256,7 @@ export const projects: Project[] = [
   {
     slug: 'lucky-punch',
     title: '피카츄 배구 AI 봇과 강화학습 실험',
-    tagline: 'SKKU × HYU 교류전 AI 부문(피카츄 배구 봇) 3위',
+    tagline: 'SKKU × HYU CSE 교류전 AI 부문(피카츄 배구 봇 대회) 3위',
     summary:
       '2026 성균관대 × 한양대 CSE 교류전 AI 부문(피카츄 배구 봇 대회)에 팀으로 참가해 3위를 했습니다. ' +
       '엔진 물리를 복제한 시뮬레이션 기반 룰 봇을 16개 버전까지 개선했고, 이를 측정하려고 브라우저 없이 ' +
