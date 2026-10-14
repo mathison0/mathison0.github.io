@@ -62,7 +62,7 @@ export const skillGroups: SkillGroup[] = [
   {
     title: '엔진 · 프레임워크',
     items: [
-      'Unreal Engine 5 (Blueprint / C++)',
+      'Unreal Engine 5',
       'DirectX 11',
       'Node.js',
     ],
@@ -107,11 +107,11 @@ export const timeline: TimelineItem[] = [
   },
   {
     period: '2023.03 ~ 2025.02',
-    title: '알고리즘 동아리 ALOHA · 운영진',
+    title: '알고리즘 동아리 ALOHA',
     org: '한양대학교',
     details: [
-      '운영진이자 멘토로 알고리즘 스터디를 이끌고 동아리 내/교내 알고리즘 대회(HCPC) 운영.',
-      'HCPC(한양대 프로그래밍 경시대회) Beginner 부문 대상 수상.',
+      '2024.03부터 운영진이자 멘토로 알고리즘 스터디를 이끌고 동아리 내/교내 알고리즘 대회(HCPC) 운영.',
+      'HCPC(한양대 프로그래밍 경시대회) Beginner 부문 대상 수상(2023.12).',
       '백준 solved.ac Platinum 5 달성.',
     ],
   },
