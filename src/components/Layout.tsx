@@ -31,6 +31,7 @@ export default function Layout() {
         <div className="container site-header__inner">
           <Link to="/" className="brand">
             {profile.name}
+            <span className="brand__role">Portfolio</span>
           </Link>
 
           <button

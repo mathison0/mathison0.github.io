@@ -27,7 +27,7 @@ export default function ProjectDetailPage() {
 
   return (
     <>
-      <Seo title={`${project.title} | Projects`} description={project.tagline} />
+      <Seo title={`${project.title} | 박세영 포트폴리오`} description={project.tagline} />
 
       <header className="detail-header">
         <div className="container">

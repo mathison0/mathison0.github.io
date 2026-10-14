@@ -44,11 +44,12 @@ export default function HomePage() {
 
   return (
     <>
-      <Seo title={`${profile.name}`} description={profile.intro} />
+      <Seo title={`${profile.nameKo} 포트폴리오 | ${profile.name}`} description={profile.intro} />
 
       {/* 커버 레터형 히어로: 이름·헤드라인·핵심 성과가 첫 화면에 다 보이도록 */}
       <section className="hero" aria-label="프로필 요약">
         <div className="container">
+          <p className="eyebrow">Portfolio</p>
           <h1 className="hero__name">
             {profile.nameKo} <span className="hero__name-en">{profile.name}</span>
           </h1>
