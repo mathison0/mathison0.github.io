@@ -328,7 +328,7 @@ export const projects: Project[] = [
       },
       {
         title: 'RL 학습 환경: 실제 엔진을 감싼 Gymnasium 환경',
-        tech: ['Python 3.13', 'Gymnasium', 'Stable-Baselines3', 'PyTorch', 'Node.js'],
+        tech: ['Python 3.13', 'Gymnasium', 'Stable-Baselines3', 'Node.js'],
         body:
           '대회 후 강화학습 실험을 개인으로 진행했습니다. 목표는 강한 봇이 아니었습니다. 학습 환경을 만들어 PPO 에이전트를 ' +
           '16개 버전에 걸쳐 다듬은 룰 봇과 같은 조건에서 비교하고, 실패하면 원인을 측정으로 밝히는 것이었습니다. ' +
