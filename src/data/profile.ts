@@ -70,9 +70,10 @@ export const skillGroups: SkillGroup[] = [
   {
     title: '툴 · 협업',
     items: [
-      'Perforce',
       'Git',
+      'Perforce',
       'Slack · Notion',
+      'Claude Code',
     ],
   },
 ]
